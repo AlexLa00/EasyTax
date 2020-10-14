@@ -6,6 +6,9 @@ import androidx.lifecycle.ViewModel;
 
 import android.util.Patterns;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import app.cyberzen.easytax.data.LoginRepository;
 import app.cyberzen.easytax.data.Result;
 import app.cyberzen.easytax.data.model.LoggedInUser;
@@ -65,6 +68,11 @@ public class LoginViewModel extends ViewModel {
 
     // A placeholder password validation check
     private boolean isPasswordValid(String password) {
-        return password != null && password.trim().length() > 7;
+        Pattern pattern;
+        Matcher matcher;
+        final String PASSWORD_PATTERN = "^(?=.*[0-9])(?=.*[A-Z])(?=.*[@#$%^&+=!])(?=\\S+$).{4,}$";
+        pattern = Pattern.compile(PASSWORD_PATTERN);
+        matcher = pattern.matcher(password);
+        return password != null && password.trim().length() > 7 && matcher.matches();
     }
 }

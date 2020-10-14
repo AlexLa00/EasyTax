@@ -8,7 +8,7 @@
     <string name="action_sign_in_short">se connecter </string>
     <string name="welcome">"Bienvenu !"</string>
     <string name="invalid_username">Pas un nom d utilisateur valide</string>
-    <string name="invalid_password">Le mot de passe doit contenir> 8 caractères </string>
+    <string name="invalid_password">Mot de passe non valide </string>
     <string name="login_failed">"Échec de la connexion" </string>
     <string name="Welcome">Bienvenue!</string>
     <string name="selectTxt">Veuillez sélectionner un formulaire</string>
