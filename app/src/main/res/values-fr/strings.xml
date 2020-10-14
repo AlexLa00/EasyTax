@@ -12,4 +12,5 @@
     <string name="login_failed">"Échec de la connexion" </string>
     <string name="Welcome">Bienvenue!</string>
     <string name="selectTxt">élire un formulaire</string>
+    <string name="cyberzen">CyberZen.</string>
 </resources>
