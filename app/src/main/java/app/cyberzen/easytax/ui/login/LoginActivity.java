@@ -25,8 +25,6 @@ import android.widget.Toast;
 
 import app.cyberzen.easytax.HomeScreen;
 import app.cyberzen.easytax.R;
-import app.cyberzen.easytax.ui.login.LoginViewModel;
-import app.cyberzen.easytax.ui.login.LoginViewModelFactory;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -39,7 +37,7 @@ public class LoginActivity extends AppCompatActivity {
         loginViewModel = ViewModelProviders.of(this, new LoginViewModelFactory())
                 .get(LoginViewModel.class);
 
-        final EditText usernameEditText = findViewById(R.id.username);
+        final EditText usernameEditText = findViewById(R.id.Email);
         final EditText passwordEditText = findViewById(R.id.password);
         final Button loginButton = findViewById(R.id.login);
         final ProgressBar loadingProgressBar = findViewById(R.id.loading);
