@@ -11,9 +11,5 @@
     <string name="invalid_password">Le mot de passe doit contenir> 8 caractères </string>
     <string name="login_failed">"Échec de la connexion" </string>
     <string name="Welcome">Bienvenue!</string>
-    <string name="you_are_not_a_member">You are not a member</string>
-    <string name="register">register</string>
-    <string name="powered_by">powered by</string>
-    <string name="cyberzen">cyberzen.</string>
-    <string name="nice_to_see_you_again">Nice to see you again</string>
+    <string name="selectTxt">élire un formulaire</string>
 </resources>
