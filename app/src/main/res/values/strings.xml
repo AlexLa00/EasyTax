@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">EasyTax</string>
+    <string name="login">Login</string>
+    <string name="you_are_not_a_member">You are not a member?</string>
+    <string name="register">Register.</string>
+    <string name="powered_by">Powered by</string>
+    <string name="cyberzen">CyberZen.</string>
+    <string name="welcome">Welcome!</string>
+    <string name="nice_to_see_you_again">Nice To See You Again!</string>
 </resources>
