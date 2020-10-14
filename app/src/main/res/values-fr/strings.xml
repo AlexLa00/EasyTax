@@ -16,4 +16,7 @@
     <string name="hello_there">Bonjour!</string>
     <string name="need_help">Besoin daide?</string>
     <string name="powered_by">Alimenté par</string>
+    <string name="family_tax_form">Formulaire dimpôt familial</string>
+    <string name="business_tax_form">Formulaire de taxe professionnelle</string>
+    <string name="personal_tax_form">Formulaire dimpôt personnel</string>
 </resources>

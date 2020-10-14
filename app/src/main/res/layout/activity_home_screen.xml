@@ -14,12 +14,12 @@
         android:text="@string/selectTxt"
         android:textColor="@color/Black"
         android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/PersonalTax"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.36"
+        app:layout_constraintHorizontal_bias="0.376"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.182" />
+        app:layout_constraintVertical_bias="0.572" />
 
     <TextView
         android:id="@+id/PowerBy"
@@ -35,7 +35,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.056"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Member"
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
@@ -53,7 +52,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/PowerBy"
-        app:layout_constraintTop_toBottomOf="@+id/Member"
         app:layout_constraintVertical_bias="0.0" />
 
     <Button
@@ -61,20 +59,20 @@
         android:layout_width="317sp"
         android:layout_height="wrap_content"
         android:background="@drawable/textbox"
-        android:text="Personal Tax Form"
+        android:text="@string/personal_tax_form"
         app:layout_constraintBottom_toTopOf="@+id/BusinessTax"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.881" />
+        app:layout_constraintVertical_bias="0.855" />
 
     <Button
         android:id="@+id/BusinessTax"
         android:layout_width="317sp"
         android:layout_height="wrap_content"
-        android:background="@drawable/textbox"
         android:layout_marginBottom="28dp"
-        android:text="Business Tax Form"
+        android:background="@drawable/textbox"
+        android:text="@string/business_tax_form"
         app:layout_constraintBottom_toTopOf="@+id/FamilyTax"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -84,12 +82,11 @@
         android:id="@+id/FamilyTax"
         android:layout_width="317sp"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="220dp"
         android:background="@drawable/textbox"
-        android:layout_marginBottom="264dp"
-        android:text="Family Tax Form"
+        android:text="@string/family_tax_form"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent" />
 
 
