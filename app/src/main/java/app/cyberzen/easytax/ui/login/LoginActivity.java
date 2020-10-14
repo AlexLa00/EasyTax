@@ -5,6 +5,7 @@ import android.app.Activity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
@@ -22,6 +23,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import app.cyberzen.easytax.HomeScreen;
 import app.cyberzen.easytax.R;
 import app.cyberzen.easytax.ui.login.LoginViewModel;
 import app.cyberzen.easytax.ui.login.LoginViewModelFactory;
@@ -122,6 +124,9 @@ public class LoginActivity extends AppCompatActivity {
     private void updateUiWithUser(LoggedInUserView model) {
         String welcome = getString(R.string.welcome) + model.getDisplayName();
         // TODO : initiate successful logged in experience
+
+        Intent home = new Intent(getApplicationContext(), HomeScreen.class);
+        startActivity(home);
         Toast.makeText(getApplicationContext(), welcome, Toast.LENGTH_LONG).show();
     }
 
