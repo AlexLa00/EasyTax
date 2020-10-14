@@ -4,6 +4,14 @@
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#03DAC5</color>
 
+    <color name="colorP">#008577</color>
+    <color name="colorPDark">#253A4B</color>
+    <color name="colorA">#D81B60</color>
+
+    <color name="grey">#253A4B</color>
+    <color name="red">#F23B5F</color>
+    <color name="white">#FFFFFF</color>
+
     <color name="White">#FFFFFF</color>
     <color name="Ivory">#FFFFF0</color>
     <color name="LightYellow">#FFFFE0</color>
