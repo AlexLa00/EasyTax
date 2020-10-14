@@ -11,4 +11,5 @@
     <string name="invalid_password">Le mot de passe doit contenir> 8 caractères </string>
     <string name="login_failed">"Échec de la connexion" </string>
     <string name="Welcome">Bienvenue!</string>
+    <string name="selectTxt">élire un formulaire</string>
 </resources>
