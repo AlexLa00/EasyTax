@@ -5,6 +5,7 @@
     <string name="title_activity_login">Login Activity</string>
     <string name="prompt_email">  Email</string>
     <string name="prompt_password">Passsword</string>
+    <string name="prompt_confirm_password">Confirm passsword</string>
     <string name="action_sign_in">Login</string>
     <string name="action_sign_in_short">Sign in</string>
     <string name="welcome">"Welcome !"</string>
@@ -19,5 +20,8 @@
     <string name="family_tax_form">Family Tax Form</string>
     <string name="business_tax_form">Business Tax Form</string>
     <string name="personal_tax_form">Personal Tax Form</string>
+    <string name="full_name">Full name</string>
+    <string name="register">Register</string>
+
 
 </resources>

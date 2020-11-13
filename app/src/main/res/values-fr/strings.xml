@@ -19,4 +19,8 @@
     <string name="family_tax_form">Formulaire dimpôt familial</string>
     <string name="business_tax_form">Formulaire de taxe professionnelle</string>
     <string name="personal_tax_form">Formulaire dimpôt personnel</string>
+
+    <string name="prompt_confirm_password">Confirm passsword</string>
+    <string name="full_name">Full name</string>
+    <string name="register">Register</string>
 </resources>
