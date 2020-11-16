@@ -24,6 +24,11 @@
     <string name="full_name">Nom complet</string>
     <string name="register">Registre</string>
 
-   k
+    <string name="camera">Import</string>
+    <string name="report">Bogue de rapport</string>
+    <string name="save">Enregistrer sous</string>
+    <string name="print">Imprimer</string>
+    <string name="help">Contactez-nous</string>
+    <string name="easy_tax">TAXE facile</string>
 
 </resources>
