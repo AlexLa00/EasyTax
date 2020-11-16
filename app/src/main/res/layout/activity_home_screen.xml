@@ -108,4 +108,17 @@
         app:menu="@menu/drawer_view"
         app:headerLayout="@layout/nav_header"/>
 
+    <FrameLayout
+        android:id="@+id/content_frame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorControlHighlight"
+            android:theme="@style/ThemeOverlay.AppCompat.ActionBar" />
+
+    </FrameLayout>
 </androidx.drawerlayout.widget.DrawerLayout>
