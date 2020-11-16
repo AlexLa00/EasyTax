@@ -23,4 +23,10 @@
     <string name="prompt_confirm_password">Confirm passsword</string>
     <string name="full_name">Full name</string>
     <string name="register">Register</string>
+
+    <string name="camera">Import</string>
+    <string name="gallery">Gallery</string>
+    <string name="slideshow">Slideshow</string>
+    <string name="tools">Tools</string>
+    <string name="setting">setting</string>
 </resources>
