@@ -21,12 +21,14 @@
     <string name="personal_tax_form">Formulaire dimpôt personnel</string>
 
     <string name="prompt_confirm_password">Confirm passsword</string>
-    <string name="full_name">Full name</string>
-    <string name="register">Register</string>
+    <string name="full_name">Nom complet</string>
+    <string name="register">Registre</string>
 
     <string name="camera">Import</string>
-    <string name="gallery">Gallery</string>
-    <string name="slideshow">Slideshow</string>
-    <string name="tools">Tools</string>
-    <string name="setting">setting</string>
+    <string name="report">Bogue de rapport</string>
+    <string name="save">Enregistrer sous</string>
+    <string name="print">Imprimer</string>
+    <string name="help">Contactez-nous</string>
+    <string name="easy_tax">TAXE facile</string>
+
 </resources>
