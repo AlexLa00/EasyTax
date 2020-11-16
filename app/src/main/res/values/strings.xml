@@ -23,10 +23,11 @@
     <string name="full_name">Full name</string>
     <string name="register">Register</string>
     <string name="camera">Import</string>
-    <string name="gallery">Gallery</string>
-    <string name="slideshow">Slideshow</string>
-    <string name="tools">Tools</string>
-    <string name="setting">setting</string>
+    <string name="report">Report Bug</string>
+    <string name="save">Save As</string>
+    <string name="print">Print</string>
+    <string name="help">Contact Us</string>
+    <string name="easy_tax">Easy TAX</string>
 
 
 </resources>
