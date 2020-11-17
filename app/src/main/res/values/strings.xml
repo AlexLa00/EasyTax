@@ -32,6 +32,7 @@
     <string name="_2_canada_caregiver_amount_for_infirm_children_under_age_18">2. Canada caregiver amount for infirm children under age 18</string>
     <string name="_3_age_amount">3. Age amount</string>
     <string name="_4_pension_income_amount">4. Pension income amount</string>
+    <string name="easy_tax">Easy TAX</string>
 
 
 </resources>
