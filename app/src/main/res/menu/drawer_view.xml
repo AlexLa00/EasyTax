@@ -8,7 +8,7 @@
         <item
             android:id="@+id/nav_gallery"
             android:icon="@drawable/gallery"
-            android:title="@string/save" />
+            android:title="@string/save_as" />
         <item
             android:id="@+id/nav_slideshow"
             android:icon="@drawable/slideshow"
@@ -16,11 +16,11 @@
         <item
             android:id="@+id/nav_manage"
             android:icon="@drawable/tools"
-            android:title="@string/help" />
+            android:title="@string/contact_us" />
         <item
             android:id="@+id/nav_setting"
             android:icon="@drawable/ic_setting"
-            android:title="@string/report" />
+            android:title="@string/report_a_bug" />
         android:checkableBehavior="single"
     </group>
 </menu>
