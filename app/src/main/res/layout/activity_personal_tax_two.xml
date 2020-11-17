@@ -4,13 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".PersonalTaxOne">
+    tools:context=".PersonalTaxTwo">
 
     <TextView
-        android:id="@+id/PTFQ3"
+        android:id="@+id/PTFQ7"
         android:layout_width="250dp"
         android:layout_height="18dp"
-        android:text="@string/_3_age_amount"
+        android:text="7. Spouse or common-law partner amount"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.236"
@@ -19,10 +19,10 @@
         app:layout_constraintVertical_bias="0.551" />
 
     <TextView
-        android:id="@+id/PTFQ4"
+        android:id="@+id/PTFQ8"
         android:layout_width="250dp"
         android:layout_height="18dp"
-        android:text="@string/_4_pension_income_amount"
+        android:text="8. Amount for an eligible dependant "
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.236"
@@ -31,10 +31,10 @@
         app:layout_constraintVertical_bias="0.702" />
 
     <TextView
-        android:id="@+id/PTFQ2"
+        android:id="@+id/PTFQ6"
         android:layout_width="250dp"
         android:layout_height="18dp"
-        android:text="@string/_2_canada_caregiver_amount_for_infirm_children_under_age_18"
+        android:text="6. Disability amount"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.236"
@@ -55,10 +55,10 @@
         app:layout_constraintVertical_bias="0.089" />
 
     <TextView
-        android:id="@+id/PTFQ1"
+        android:id="@+id/PTFQ5"
         android:layout_width="186dp"
         android:layout_height="20dp"
-        android:text="@string/_1_basic_peronsal_amount"
+        android:text="5. Tuition (full time and part time)"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.168"
@@ -67,7 +67,7 @@
         app:layout_constraintVertical_bias="0.205" />
 
     <EditText
-        android:id="@+id/PTFA1"
+        android:id="@+id/PTFA5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -81,7 +81,7 @@
         app:layout_constraintVertical_bias="0.266" />
 
     <EditText
-        android:id="@+id/PTFA2"
+        android:id="@+id/PTFA6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -95,7 +95,7 @@
         app:layout_constraintVertical_bias="0.453" />
 
     <EditText
-        android:id="@+id/PTFA3"
+        android:id="@+id/PTFA7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -109,7 +109,7 @@
         app:layout_constraintVertical_bias="0.625" />
 
     <EditText
-        android:id="@+id/PTFA4"
+        android:id="@+id/PTFA8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -121,5 +121,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.772" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

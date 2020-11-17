@@ -9,7 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".PersonalTaxOne"></activity>
+        <activity android:name=".TotalClaimAmount"></activity>
+        <activity android:name=".PersonalTaxThree"></activity>
+        <activity android:name=".PersonalTaxTwo" />
+        <activity android:name=".PersonalTaxOne" />
         <activity android:name=".HomeScreen" />
         <activity
             android:name=".ui.login.LoginActivity"
