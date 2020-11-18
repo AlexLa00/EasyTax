@@ -18,7 +18,6 @@ import com.google.android.material.navigation.NavigationView;
 
 import org.w3c.dom.Text;
 
-import app.cyberzen.easytax.ui.login.LoginActivity;
 
 public class WelcomeActivity extends AppCompatActivity implements View.OnClickListener {
     private Button loginBtn;
@@ -37,7 +36,7 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
         loginBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Intent loginW = new Intent(getApplicationContext(), LoginActivity.class);
+                Intent loginW = new Intent(getApplicationContext(), login_user.class);
                 startActivity(loginW);
             }
         });
