@@ -49,7 +49,7 @@ public class scroll extends AppCompatActivity {
                 float num11 = Float.parseFloat(tx11.getText().toString());
                 float num12 = Float.parseFloat(tx12.getText().toString());
 
-                float sum = num1 + num2 + num3 + num4 + num5 + num6 + num7 + num8 + num9 + num10 + num11 + num12;
+                float sum = num1 + num2 + num3 + num4 + num5 + num6 + num7 + num8 + num9 + num10 + num11 + num12; //Answer
 
                 EditText editText = (EditText)findViewById(R.id.PTFA13);
                 editText.setText(String.valueOf(sum));
