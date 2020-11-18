@@ -6,9 +6,11 @@ package app.cyberzen.easytax;
         import android.os.Bundle;
         import android.view.View;
         import android.widget.Button;
+        import android.widget.TextView;
 
 public class HomeScreen extends AppCompatActivity {
     private Button button;
+    private TextView textView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,6 +18,7 @@ public class HomeScreen extends AppCompatActivity {
         setContentView(R.layout.activity_home_screen);
 
         button = (Button) findViewById(R.id.PersonalTax);
+
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -25,8 +28,9 @@ public class HomeScreen extends AppCompatActivity {
 
     }
 
-        public void openPersonalTaxOne(){
-            Intent intent = new  Intent(this, PersonalTaxOne.class);
-            startActivity(intent);
-        }
+    public void openPersonalTaxOne()
+    {
+        Intent intent = new  Intent(this, PersonalTaxOne.class);
+        startActivity(intent);
+    }
 }

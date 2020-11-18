@@ -9,6 +9,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -17,6 +20,10 @@ public class Registration extends AppCompatActivity {
     private EditText rname, remail, rpswd, rconfigpswd;
     private String name, email, password, configPassword;
     private Button regbtn;
+
+    //database values
+    private FirebaseDatabase rootNode;
+    private DatabaseReference reference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,10 +42,10 @@ public class Registration extends AppCompatActivity {
             }
 
         });
-
-
     }
-    public void register(){
+
+    public void register()
+    {
         initilize();//initilize given data to a trimmed string
         if(!Validate()){
             Toast.makeText(this,"Registrtion failed please try again",Toast.LENGTH_SHORT).show();
@@ -48,7 +55,8 @@ public class Registration extends AppCompatActivity {
         }
     }
 
-    public void initilize(){
+    public void initilize()
+    {
         name=rname.getText().toString().trim();
         email=remail.getText().toString().trim();
         password=rpswd.getText().toString().trim();
