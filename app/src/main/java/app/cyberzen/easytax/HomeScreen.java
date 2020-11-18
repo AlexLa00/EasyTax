@@ -9,14 +9,13 @@ package app.cyberzen.easytax;
         import android.widget.TextView;
 
 public class HomeScreen extends AppCompatActivity {
-    private Button button;
+    private Button button, registeredComplete;
     private TextView textView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_screen);
-
         button = (Button) findViewById(R.id.PersonalTax);
 
         button.setOnClickListener(new View.OnClickListener() {

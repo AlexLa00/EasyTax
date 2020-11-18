@@ -70,19 +70,7 @@
         app:layout_constraintHorizontal_bias="0.142"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.092" />
-
-    <TextView
-        android:id="@+id/enterPhone"
-        android:layout_width="254dp"
-        android:layout_height="23dp"
-        android:text="phone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.191"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.173" />
+        app:layout_constraintVertical_bias="0.061" />
 
     <EditText
         android:id="@+id/phone_insert"
@@ -92,58 +80,17 @@
         android:layout_marginEnd="24dp"
         android:background="@drawable/textbox"
         android:gravity="center"
-        android:hint="@string/someone_gmail_com"
-        android:inputType="textEmailAddress"
+        android:hint="@string/phone_hint"
+        android:inputType="number"
         android:selectAllOnFocus="true"
         android:textAllCaps="false"
         android:textColorHint="@color/DarkGray"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.211" />
-
-    <EditText
-        android:id="@+id/email_insert"
-        android:layout_width="363dp"
-        android:layout_height="40dp"
-        android:background="@drawable/textbox"
-        android:gravity="center"
-        android:hint="@string/someone_gmail_com"
-        android:inputType="textEmailAddress"
-        android:selectAllOnFocus="true"
-        android:textAllCaps="false"
-        android:textColorHint="@color/Black"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.541" />
-
-    <TextView
-        android:id="@+id/emailPT"
-        android:layout_width="254dp"
-        android:layout_height="23dp"
-        android:text="@string/prompt_email"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.171"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.481" />
-
-    <TextView
-        android:id="@+id/confirmPasswordPT"
-        android:layout_width="254dp"
-        android:layout_height="23dp"
-        android:text="@string/prompt_confirm_password"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.171"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.748" />
+        app:layout_constraintVertical_bias="0.222" />
 
     <EditText
         android:id="@+id/fullname_insert"
@@ -163,7 +110,49 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.396" />
+        app:layout_constraintVertical_bias="0.367" />
+
+    <EditText
+        android:id="@+id/email_insert"
+        android:layout_width="363dp"
+        android:layout_height="40dp"
+        android:background="@drawable/textbox"
+        android:gravity="center"
+        android:hint="@string/someone_gmail_com"
+        android:inputType="textEmailAddress"
+        android:selectAllOnFocus="true"
+        android:textAllCaps="false"
+        android:textColorHint="@color/DarkGray"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.437"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.505" />
+
+    <TextView
+        android:id="@+id/passwordPT"
+        android:layout_width="254dp"
+        android:layout_height="23dp"
+        android:text="@string/prompt_password"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.152"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.58" />
+
+    <TextView
+        android:id="@+id/confirmPasswordPT"
+        android:layout_width="254dp"
+        android:layout_height="23dp"
+        android:text="@string/prompt_confirm_password"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.152"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.713" />
 
     <EditText
         android:id="@+id/confirm_password_insert"
@@ -176,12 +165,13 @@
         android:imeOptions="actionDone"
         android:inputType="textPassword"
         android:selectAllOnFocus="true"
-        android:textColorHint="@color/Black"
+        android:textColorHint="@color/DarkGray"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.437"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.811" />
+        app:layout_constraintVertical_bias="0.775" />
 
     <EditText
         android:id="@+id/password_insert"
@@ -194,12 +184,49 @@
         android:imeOptions="actionDone"
         android:inputType="textPassword"
         android:selectAllOnFocus="true"
-        android:textColorHint="@color/Black"
+        android:textColorHint="@color/DarkGray"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.437"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.677" />
+        app:layout_constraintVertical_bias="0.641" />
+
+    <TextView
+        android:id="@+id/emailPT"
+        android:layout_width="254dp"
+        android:layout_height="23dp"
+        android:text="@string/prompt_email"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.152"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.444" />
+
+    <TextView
+        android:id="@+id/fullnameTV"
+        android:layout_width="254dp"
+        android:layout_height="23dp"
+        android:text="@string/full_name"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.152"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.303" />
+
+    <TextView
+        android:id="@+id/enterPhone"
+        android:layout_width="254dp"
+        android:layout_height="23dp"
+        android:text="Phone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.222"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.183" />
 
     <Button
         android:id="@+id/registerBtn"
@@ -216,30 +243,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.91" />
-
-    <TextView
-        android:id="@+id/fullnameTV"
-        android:layout_width="254dp"
-        android:layout_height="23dp"
-        android:text="@string/full_name"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.171"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.323" />
-
-    <TextView
-        android:id="@+id/passwordPT"
-        android:layout_width="254dp"
-        android:layout_height="23dp"
-        android:text="@string/prompt_password"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.171"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.615" />
 
     <TextView
         android:id="@+id/Help"
