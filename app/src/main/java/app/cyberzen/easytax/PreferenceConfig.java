@@ -13,7 +13,7 @@ import java.util.List;
 public class PreferenceConfig {
     private static String LIST_KEY;
 
-    public static void writeListInPref(Context context, List<Registration> apartments){
+    public static void writeListInPref(Context context, List<RegisterUser> apartments){
         Gson gson =new Gson();
         String jsonString=gson.toJson(apartments);
 
@@ -22,14 +22,14 @@ public class PreferenceConfig {
         editor.putString(LIST_KEY,jsonString);
         editor.apply();
     }
-    public static List<Registration> readListFromPref(Context context)
+    public static List<RegisterUser> readListFromPref(Context context)
     {
         SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(context);
         String jsonString=pref.getString(LIST_KEY,"");
 
         Gson gson = new Gson();
-        Type type=new TypeToken<ArrayList<Registration>>(){}.getType();
-        List<Registration> list=gson.fromJson(jsonString,type);
+        Type type=new TypeToken<ArrayList<RegisterUser>>(){}.getType();
+        List<RegisterUser> list=gson.fromJson(jsonString,type);
         return list;
     }
 

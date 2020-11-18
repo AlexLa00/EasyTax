@@ -16,7 +16,7 @@ public class SharedPreference {
         super();
     }
 
-    public void saveFavorites(Context context, List<Registration> favorites)
+    public void saveFavorites(Context context, List<RegisterUser> favorites)
     {
         SharedPreferences settings;
         SharedPreferences.Editor editor;
@@ -31,10 +31,10 @@ public class SharedPreference {
         editor.commit();
     }
 
-    public ArrayList<Registration> getFavorites(Context context)
+    public ArrayList<RegisterUser> getFavorites(Context context)
     {
         SharedPreferences settings;
-        List<Registration> favorites;
+        List<RegisterUser> favorites;
 
         settings=context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
 
@@ -42,7 +42,7 @@ public class SharedPreference {
         {
             String jsonFavorites = settings.getString(FAVORITES,null);
             Gson gson = new Gson();
-            Registration[]favoriteItems = gson.fromJson(jsonFavorites, Registration[].class);
+            RegisterUser[]favoriteItems = gson.fromJson(jsonFavorites, RegisterUser[].class);
 
             favorites= Arrays.asList(favoriteItems);
             favorites=new ArrayList<>(favorites);
@@ -50,6 +50,6 @@ public class SharedPreference {
         }
         else
             return null;
-        return (ArrayList<Registration>)favorites;
+        return (ArrayList<RegisterUser>)favorites;
     }
 }

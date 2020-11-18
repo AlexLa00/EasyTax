@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "75347971033",
+    "firebase_url": "https://easytax-921b9.firebaseio.com",
+    "project_id": "easytax-921b9",
+    "storage_bucket": "easytax-921b9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:75347971033:android:db8145de8d4b6ac10167c8",
+        "android_client_info": {
+          "package_name": "app.cyberzen.easytax"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "75347971033-2l0a48kb5ok2rikmuh0h88u4g0ss6hge.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCsiF3flVXcC14nF2_csXCq5N9o7KuNfEo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "75347971033-2l0a48kb5ok2rikmuh0h88u4g0ss6hge.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
