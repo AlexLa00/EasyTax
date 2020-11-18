@@ -30,7 +30,7 @@ public class HomeScreen extends AppCompatActivity {
 
     public void openPersonalTaxOne()
     {
-        Intent intent = new  Intent(this, PersonalTaxOne.class);
+        Intent intent = new  Intent(this,  Scroll.class);
         startActivity(intent);
     }
 }
