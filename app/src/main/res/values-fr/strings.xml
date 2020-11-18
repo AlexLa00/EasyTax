@@ -36,4 +36,8 @@
     <string name="easy_tax">Easy TAX</string>
     <string name="someone_gmail_com">Someone@gmail.com</string>
 
+
+    <string name="txt_message">No Text Available</string>
+    <string name="permission_camera_rationale">Access to the camera is needed for detection</string>
+
 </resources>

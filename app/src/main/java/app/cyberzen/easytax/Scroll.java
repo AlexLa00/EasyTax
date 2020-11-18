@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-public class scroll extends AppCompatActivity {
+public class Scroll extends AppCompatActivity {
     EditText tx1, tx2, tx3, tx4, tx5, tx6, tx7, tx8, tx9, tx10, tx11, tx12;
     Button cal;
     @Override
