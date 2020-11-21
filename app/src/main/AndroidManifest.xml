@@ -15,9 +15,7 @@
         <activity android:name=".login_user" />
         <activity android:name=".RegisterUser" />
         <activity android:name=".TotalClaimAmount" />
-        <activity android:name=".PersonalTaxThree" />
-        <activity android:name=".PersonalTaxTwo" />
-        <activity android:name=".PersonalTaxOne" />
+        <activity android:name=".Scroll" />
         <activity android:name=".HomeScreen" />
         <activity android:name=".WelcomeActivity">
             <intent-filter>
