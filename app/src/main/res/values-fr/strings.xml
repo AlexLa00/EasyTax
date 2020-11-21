@@ -39,5 +39,7 @@
 
     <string name="txt_message">No Text Available</string>
     <string name="permission_camera_rationale">Access to the camera is needed for detection</string>
+    <string name="enter_phone_number">Enter Phone Number</string>
+    <string name="phone_hint">6475555555</string>
 
 </resources>
