@@ -37,9 +37,9 @@
     <string name="someone_gmail_com">Someone@gmail.com</string>
 
 
-    <string name="txt_message">No Text Available</string>
-    <string name="permission_camera_rationale">Access to the camera is needed for detection</string>
-    <string name="enter_phone_number">Enter Phone Number</string>
+    <string name="txt_message">Aucun texte disponible</string>
+    <string name="permission_camera_rationale">Laccès à la caméra est nécessaire pour la détection</string>
+    <string name="enter_phone_number">Entrez le numéro de téléphone</string>
     <string name="phone_hint">6475555555</string>
 
 </resources>
