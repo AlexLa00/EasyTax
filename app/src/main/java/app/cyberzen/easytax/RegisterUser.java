@@ -57,6 +57,8 @@ public class RegisterUser extends AppCompatActivity {
             Toast.makeText(this,"Registrtion failed please try again",Toast.LENGTH_SHORT).show();
         }
         else{
+            Intent intent = new  Intent(this, HomeScreen.class);
+            startActivity(intent);
             RegistrationSuccess();
         }
     }
