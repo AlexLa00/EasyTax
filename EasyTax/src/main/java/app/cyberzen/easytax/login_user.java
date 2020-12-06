@@ -1,6 +1,7 @@
 package app.cyberzen.easytax;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -14,15 +15,24 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+import com.google.gson.Gson;
+
+import app.cyberzen.easytax.auth.AuthListener;
+import app.cyberzen.easytax.auth.GoogleAuth;
+import app.cyberzen.easytax.model.User;
 
 
 public class login_user extends AppCompatActivity {
+    private Button btn_google;
+    private GoogleAuth googleAuth;
     EditText usernameInput;
     EditText passwordInput;
     Button loginbtn;
@@ -36,6 +46,15 @@ public class login_user extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_user);
 
+        btn_google = findViewById(R.id.googlebtn);
+        btn_google.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                auth();
+            }
+        });
+
+
         usernameInput = findViewById(R.id.Email);
         passwordInput = findViewById(R.id.password);
 
@@ -47,6 +66,32 @@ public class login_user extends AppCompatActivity {
                 login();
             }
 
+        });
+
+    }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data){
+        super.onActivityResult(requestCode,resultCode,data);
+        googleAuth.actiityResult(requestCode,resultCode,data);
+    }
+    @Override
+    protected void onStart() {
+        GoogleSignInAccount account= GoogleSignIn.getLastSignedInAccount(this);
+        if(account != null){
+            auth();
+        }
+        super.onStart();
+    }
+
+    private void auth(){
+        googleAuth = new GoogleAuth(login_user.this, new AuthListener() {
+            @Override
+            public void OnAuthentication(User user) {
+                Intent intent = new Intent(login_user.this, HomeScreen.class);
+                intent.putExtra("user", new Gson().toJson(user));
+                startActivity(intent);
+                finish();
+            }
         });
 
     }

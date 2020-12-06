@@ -41,6 +41,7 @@
     <string name="phone_hint">6475555555</string>
     <string name="registration">Registration</string>
     <string name="phone">Phone</string>
+    <string name="googleSignInBtn">sign in with google</string>
 
 
 </resources>
