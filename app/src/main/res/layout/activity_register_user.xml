@@ -22,7 +22,8 @@
         app:layout_constraintHorizontal_bias="0.047"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Member"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.0"
+        tools:ignore="UnknownIdInLayout" />
 
     <TextView
         android:id="@+id/CyberZen"
@@ -55,14 +56,15 @@
         app:layout_constraintEnd_toEndOf="@+id/password"
         app:layout_constraintStart_toStartOf="@+id/password"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.3" />
+        app:layout_constraintVertical_bias="0.3"
+        tools:ignore="UnknownIdInLayout" />
 
     <TextView
         android:id="@+id/Intro"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/bold"
-        android:text="Registration"
+        android:text="@string/registration"
         android:textColor="@color/Black"
         android:textSize="40sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -90,7 +92,9 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.222" />
+        app:layout_constraintVertical_bias="0.222"
+        tools:ignore="TextFields"
+        android:autofillHints="" />
 
     <EditText
         android:id="@+id/fullname_insert"
@@ -110,7 +114,8 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.367" />
+        app:layout_constraintVertical_bias="0.367"
+        android:autofillHints="" />
 
     <EditText
         android:id="@+id/email_insert"
@@ -128,7 +133,8 @@
         app:layout_constraintHorizontal_bias="0.437"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.505" />
+        app:layout_constraintVertical_bias="0.505"
+        android:autofillHints="" />
 
     <TextView
         android:id="@+id/passwordPT"
@@ -220,7 +226,7 @@
         android:id="@+id/enterPhone"
         android:layout_width="254dp"
         android:layout_height="23dp"
-        android:text="Phone"
+        android:text="@string/phone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.222"
