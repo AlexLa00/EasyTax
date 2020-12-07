@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout
+<androidx.appcompat.widget.LinearLayoutCompat
 
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
@@ -8,7 +8,8 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MenuSetting">
+    tools:context=".MenuSetting"
+    tools:ignore="MissingDefaultResource">
 
     <TextView
 
@@ -60,7 +61,19 @@
             android:text="Default" />
 
     </RadioGroup>
-
+    <TextView
+        android:id="@+id/fontID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/change_text_size"
+        android:textStyle="bold"
+        android:textSize="24sp"
+        android:layout_margin="10dp"/>
+    <androidx.appcompat.widget.AppCompatSpinner
+        android:id="@+id/fontSpinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"/>
     <Button
         android:id="@+id/ButtonSettingsSave"
         android:layout_width="match_parent"
@@ -73,4 +86,4 @@
         android:layout_margin="30dp"/>
 
 
-</LinearLayout>
+</androidx.appcompat.widget.LinearLayoutCompat>
