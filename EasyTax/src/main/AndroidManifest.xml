@@ -17,14 +17,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".FamilyTaxForm"></activity>
+        <activity android:name=".WelcomeActivity"></activity>
+        <activity android:name=".FamilyTaxForm" />
         <activity android:name=".BusinessTaxForm" />
         <activity android:name=".Scroll" />
         <activity android:name=".login_user" />
         <activity android:name=".RegisterUser" />
         <activity android:name=".TotalClaimAmount" />
         <activity android:name=".HomeScreen" />
-        <activity android:name=".WelcomeActivity">
+        <activity android:name=".HomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

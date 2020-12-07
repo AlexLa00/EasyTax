@@ -29,10 +29,10 @@
     <string name="_3_age_amount">3. Montant de l’âge</string>
     <string name="_4_pension_income_amount">4. Montant du revenu de pension</string>
     <string name="save_as">Enregistrer AS</string>
-    <string name="camera">Importation</string>
-    <string name="print">Imprimer</string>
-    <string name="contact_us">Contactez-nous</string>
-    <string name="report_a_bug">Signaler un bogue</string>
+
+
+    <string name="setting">Setting</string>
+    <string name="report_a_bug">Help</string>
     <string name="easy_tax">Easy TAX</string>
     <string name="someone_gmail_com">Someone@gmail.com</string>
 
@@ -44,5 +44,14 @@
     <string name="registration">Registration</string>
     <string name="phone">Phone</string>
     <string name="googleSignInBtn">sign in with google</string>
+    <string name="log_out">Log Out</string>
+    <string name="change_text_size">Change Text Size</string>
+    <string name="Saved_as">Saved</string>
+    <string-array name="fontSize">
+        <item>12</item>
+        <item>13</item>
+        <item>14</item>
+        <item>15</item>
+    </string-array>
 
 </resources>
