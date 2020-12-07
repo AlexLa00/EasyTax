@@ -8,15 +8,15 @@ import java.util.Arrays;
 import java.util.List;
 
 public class SharedPreference {
-    public static final String PREFS_NAME="HOME_APP";
-    public static final String FAVORITES = "Home_Favorite";
+    public static final String PREFS_NAME="TAX_APP";
+    public static final String FAVORITES = "TAX_Favorite";
 
     public SharedPreference()
     {
         super();
     }
 
-    public void saveFavorites(Context context, List<RegisterUser> favorites)
+    public void saveFavorites(Context context, List<RegisterUser> t)
     {
         SharedPreferences settings;
         SharedPreferences.Editor editor;
@@ -25,7 +25,7 @@ public class SharedPreference {
         editor=settings.edit();
 
         Gson gson=new Gson();
-        String jsonFavorites = gson.toJson(favorites);
+        String jsonFavorites = gson.toJson(t);
 
         editor.putString(FAVORITES,jsonFavorites);
         editor.commit();

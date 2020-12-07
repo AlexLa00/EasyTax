@@ -13,9 +13,9 @@ import java.util.List;
 public class PreferenceConfig {
     private static String LIST_KEY;
 
-    public static void writeListInPref(Context context, List<RegisterUser> apartments){
+    public static void writeListInPref(Context context, List<RegisterUser> HomeFragment){
         Gson gson =new Gson();
-        String jsonString=gson.toJson(apartments);
+        String jsonString=gson.toJson(HomeFragment);
 
         SharedPreferences pref= PreferenceManager.getDefaultSharedPreferences(context);
         SharedPreferences.Editor editor=pref.edit();
