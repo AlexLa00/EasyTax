@@ -12,7 +12,7 @@ public class MenuSave extends Fragment {
         switch (item.getItemId())
         {
 
-            case R.id.ButtonSettingsSave:
+            case R.id.nav_save:
                 Toast.makeText(getActivity(),"Save", Toast.LENGTH_LONG).show();
                 break;
 
