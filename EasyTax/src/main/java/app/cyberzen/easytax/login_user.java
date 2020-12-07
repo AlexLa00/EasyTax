@@ -7,12 +7,15 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -24,6 +27,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.google.gson.Gson;
+
+import org.w3c.dom.Text;
 
 import app.cyberzen.easytax.auth.AuthListener;
 import app.cyberzen.easytax.auth.GoogleAuth;
@@ -68,7 +73,16 @@ public class login_user extends AppCompatActivity {
 
         });
 
-    }
+        TextView login  = (TextView) findViewById(R.id.Help1);
+        login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View viewIn) {
+                Intent myIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://support.google.com/?hl=en/"));
+                startActivity(myIntent);
+            }
+        });
+        }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data){
         super.onActivityResult(requestCode,resultCode,data);
@@ -186,5 +200,6 @@ public class login_user extends AppCompatActivity {
         Intent loginW = new Intent(getApplicationContext(), HomeScreen.class);
         startActivity(loginW);
     }
-}
+    }
+
 
