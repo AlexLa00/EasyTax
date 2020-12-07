@@ -5,8 +5,8 @@
               android:background="?attr/colorPrimaryDark"
               android:padding="16dp"
               android:theme="@style/ThemeOverlay.AppCompat.Dark"
-              android:orientation="horizontal"
-              android:gravity="bottom">
+              android:orientation="vertical">
+
 
     <TextView
         android:layout_width="match_parent"
