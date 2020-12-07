@@ -7,12 +7,14 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -26,6 +28,10 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
     private Button loginBtn;
     private TextView register;
     final Context context = this;
+
+    Dialog myDialog;
+    Button btnYes,BtnNo;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,35 +61,36 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
                 break;
         }
     }
+
     @Override
     public void onBackPressed() {
-        //super.onBackPressed();
-        IsFinish("Want to close app?");
+        MyCustomAlertDialog();
     }
+    public void MyCustomAlertDialog()
+    {
+        myDialog = new Dialog(WelcomeActivity.this);
+        myDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        myDialog.setContentView(R.layout.customdialog);
+        myDialog.setTitle("My Customer Dialog");
+        BtnNo = (Button)myDialog.findViewById(R.id.noBtn);
+        btnYes = (Button)myDialog.findViewById(R.id.yesBtn);
 
-    public void IsFinish(String alertmessage) {
+        BtnNo.setEnabled(true);
+        btnYes.setEnabled(true);
 
-        DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+        btnYes.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(DialogInterface dialog, int which) {
-
-                switch (which) {
-                    case DialogInterface.BUTTON_POSITIVE:
-                        android.os.Process.killProcess(android.os.Process.myPid());
-                        // This above line close correctly
-                        //finish();
-                        break;
-
-                    case DialogInterface.BUTTON_NEGATIVE:
-                        break;
-                }
+            public void onClick(View v) {
+                android.os.Process.killProcess(android.os.Process.myPid());
             }
-        };
+        });
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(context);
-        builder.setMessage(alertmessage)
-                .setPositiveButton("Yes", dialogClickListener)
-                .setNegativeButton("No", dialogClickListener).show();
-
+        BtnNo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                myDialog.cancel();
+            }
+        });
+        myDialog.show();
     }
 }
