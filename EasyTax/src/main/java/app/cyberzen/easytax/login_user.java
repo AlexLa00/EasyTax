@@ -72,19 +72,23 @@ public class login_user extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data){
         super.onActivityResult(requestCode,resultCode,data);
-        googleAuth.actiityResult(requestCode,resultCode,data);
+        googleAuth.activityResult(requestCode,resultCode,data);
+
     }
     @Override
     protected void onStart() {
         GoogleSignInAccount account= GoogleSignIn.getLastSignedInAccount(this);
         if(account != null){
-            auth();
+            //auth();
         }
+
         super.onStart();
     }
 
     private void auth(){
+
         googleAuth = new GoogleAuth(login_user.this, new AuthListener() {
+
             @Override
             public void OnAuthentication(User user) {
                 Intent intent = new Intent(login_user.this, HomeScreen.class);
