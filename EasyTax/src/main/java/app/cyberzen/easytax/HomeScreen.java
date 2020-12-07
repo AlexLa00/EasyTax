@@ -17,14 +17,25 @@ package app.cyberzen.easytax;
         import android.widget.TextView;
         import android.widget.Toast;
 
+        import com.google.android.gms.auth.api.signin.GoogleSignIn;
+        import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+        import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
         import com.google.android.material.navigation.NavigationView;
+        import com.google.gson.Gson;
+
+        import app.cyberzen.easytax.model.User;
 
 public class HomeScreen extends AppCompatActivity {
     private Button personalTax, registeredComplete;
     private Button businessTax;
     private Button familyTax;
+    private TextView username;
     private TextView textView;
     private DrawerLayout mDrawerLayout;
+
+    private int GOOGLE_SIGN_IN = 101;
+    private GoogleSignInClient googleSignInClient;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,14 +66,21 @@ public class HomeScreen extends AppCompatActivity {
             }
         });
 
-        HomeMenu  homeFragment =  new HomeMenu ();
+        //HomeMenu  homeFragment =  new HomeMenu ();
         FragmentManager manager = getSupportFragmentManager();
-        manager.beginTransaction().replace(R.id.content_frame, homeFragment).commit();
+       // manager.beginTransaction().replace(R.id.content_frame, homeFragment).commit();
+
+        //username
+        username = findViewById(R.id.userNametv);
+        User user = new Gson().fromJson(getIntent().getStringExtra("user"),User.class);
+        username.setText(user.getUsername());
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
+        googleSignInClient = GoogleSignIn.getClient(this, gso);
 
 
         ActionBar mActionBar = getSupportActionBar();
         mActionBar.setDisplayHomeAsUpEnabled(true);
-        mActionBar.setHomeAsUpIndicator(R.drawable.ic_drawer);
+        //mActionBar.setHomeAsUpIndicator(R.drawable.ic_drawer);
 
         mDrawerLayout = findViewById(R.id.drawer_layout);
 
@@ -79,20 +97,20 @@ public class HomeScreen extends AppCompatActivity {
 
                 int id = menuItem.getItemId();
                 if (id == R.id.nav_save) {
-                    newFragment = new MenuSave();
-                    transaction.replace(R.id.content_frame, newFragment);
+                   // newFragment = new MenuSave();
+                   // transaction.replace(R.id.content_frame, newFragment);
                     transaction.addToBackStack(null);
                     transaction.commit();
 
                 } else if (id == R.id.nav_help) {
-                    newFragment = new MenuHelp();
-                    transaction.replace(R.id.content_frame, newFragment);
+                   // newFragment = new MenuHelp();
+                    //transaction.replace(R.id.content_frame, newFragment);
                     transaction.addToBackStack(null);
                     transaction.commit();
 
                 } else if (id == R.id.nav_setting) {
-                    newFragment = new MenuSetting();
-                    transaction.replace(R.id.content_frame, newFragment);
+                   // newFragment = new MenuSetting();
+                    //transaction.replace(R.id.content_frame, newFragment);
                     transaction.addToBackStack(null);
                     transaction.commit();
 

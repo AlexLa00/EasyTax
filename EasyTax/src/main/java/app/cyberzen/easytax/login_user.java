@@ -79,7 +79,6 @@ public class login_user extends AppCompatActivity {
     protected void onStart() {
         GoogleSignInAccount account= GoogleSignIn.getLastSignedInAccount(this);
         if(account != null){
-            //auth();
         }
 
         super.onStart();
@@ -126,7 +125,6 @@ public class login_user extends AppCompatActivity {
                         passwordInput.setError("password does not match");
 
                         //Toast.makeText(this, "password does not match!", Toast.LENGTH_SHORT).show();
-
 
                     }
                 }
