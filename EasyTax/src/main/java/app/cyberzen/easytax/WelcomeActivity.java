@@ -12,6 +12,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
@@ -31,7 +32,6 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
 
     Dialog myDialog;
     Button btnYes,BtnNo;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

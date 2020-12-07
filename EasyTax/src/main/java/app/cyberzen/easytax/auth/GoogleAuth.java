@@ -36,7 +36,7 @@ public class GoogleAuth {
 
     }
 
-    public void actiityResult(int code, int requestCode, Intent data){
+    public void activityResult(int requestCode, int resultCode, Intent data){
         if(requestCode==GOOGLE_SIGN_IN){
             Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
             handleSignInResult(task);
@@ -46,6 +46,7 @@ public class GoogleAuth {
     private void handleSignInResult(Task<GoogleSignInAccount> completedTask){
         try{
             GoogleSignInAccount account = completedTask.getResult(ApiException.class);
+            //Added photo parameter
             User user = new User(account.getId(), account.getDisplayName(), account.getEmail());
             authListener.OnAuthentication(user);
 
