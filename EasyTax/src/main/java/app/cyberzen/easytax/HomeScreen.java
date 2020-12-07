@@ -20,6 +20,8 @@ package app.cyberzen.easytax;
         import com.google.android.gms.auth.api.signin.GoogleSignIn;
         import com.google.android.gms.auth.api.signin.GoogleSignInClient;
         import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+        import com.google.android.gms.tasks.OnCompleteListener;
+        import com.google.android.gms.tasks.Task;
         import com.google.android.material.navigation.NavigationView;
         import com.google.gson.Gson;
 
@@ -27,13 +29,10 @@ package app.cyberzen.easytax;
 
 public class HomeScreen extends AppCompatActivity {
     private Button personalTax, registeredComplete;
-    private Button businessTax;
     private Button familyTax;
-    private TextView username;
-    private TextView textView;
+    private Button logout;
     private DrawerLayout mDrawerLayout;
 
-    private int GOOGLE_SIGN_IN = 101;
     private GoogleSignInClient googleSignInClient;
 
     @Override
@@ -42,7 +41,7 @@ public class HomeScreen extends AppCompatActivity {
         setContentView(R.layout.activity_home_screen);
 
         personalTax = (Button) findViewById(R.id.PersonalTax);
-        businessTax = (Button) findViewById(R.id.BusinessTax);
+        Button businessTax = (Button) findViewById(R.id.BusinessTax);
         familyTax = (Button) findViewById(R.id.FamilyTax);
 
         personalTax.setOnClickListener(new View.OnClickListener() {
@@ -66,21 +65,40 @@ public class HomeScreen extends AppCompatActivity {
             }
         });
 
-        //HomeMenu  homeFragment =  new HomeMenu ();
+        HomeMenu  homeFragment =  new HomeMenu ();
         FragmentManager manager = getSupportFragmentManager();
-       // manager.beginTransaction().replace(R.id.content_frame, homeFragment).commit();
+        manager.beginTransaction().replace(R.id.content_frame, homeFragment).commit();
 
         //username
-        username = findViewById(R.id.userNametv);
+        TextView username = findViewById(R.id.userNametv);
         User user = new Gson().fromJson(getIntent().getStringExtra("user"),User.class);
         username.setText(user.getUsername());
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
         googleSignInClient = GoogleSignIn.getClient(this, gso);
 
+        //logout
+        logout=findViewById(R.id.button2);
+        logout.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                googleSignInClient.signOut().addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if(task.isSuccessful()){
+                            startActivity(new Intent(HomeScreen.this, WelcomeActivity.class));
+                            finish();
+
+                        }
+                    }
+                });
+            }
+        });
+
 
         ActionBar mActionBar = getSupportActionBar();
         mActionBar.setDisplayHomeAsUpEnabled(true);
-        //mActionBar.setHomeAsUpIndicator(R.drawable.ic_drawer);
+        mActionBar.setHomeAsUpIndicator(R.drawable.ic_drawer);
 
         mDrawerLayout = findViewById(R.id.drawer_layout);
 
@@ -97,20 +115,20 @@ public class HomeScreen extends AppCompatActivity {
 
                 int id = menuItem.getItemId();
                 if (id == R.id.nav_save) {
-                   // newFragment = new MenuSave();
-                   // transaction.replace(R.id.content_frame, newFragment);
+                   newFragment = new MenuSave();
+                   transaction.replace(R.id.content_frame, newFragment);
                     transaction.addToBackStack(null);
                     transaction.commit();
 
                 } else if (id == R.id.nav_help) {
-                   // newFragment = new MenuHelp();
-                    //transaction.replace(R.id.content_frame, newFragment);
+                    newFragment = new MenuHelp();
+                    transaction.replace(R.id.content_frame, newFragment);
                     transaction.addToBackStack(null);
                     transaction.commit();
 
                 } else if (id == R.id.nav_setting) {
-                   // newFragment = new MenuSetting();
-                    //transaction.replace(R.id.content_frame, newFragment);
+                    newFragment = new MenuSetting();
+                    transaction.replace(R.id.content_frame, newFragment);
                     transaction.addToBackStack(null);
                     transaction.commit();
 

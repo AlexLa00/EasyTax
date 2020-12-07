@@ -9,9 +9,19 @@
 
 
     <TextView
+        android:id="@+id/usernametv2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/easy_tax"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="60dp" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
 </LinearLayout>
