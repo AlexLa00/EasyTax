@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -14,6 +15,8 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -41,6 +44,9 @@ public class login_user extends AppCompatActivity {
     EditText usernameInput;
     EditText passwordInput;
     Button loginbtn;
+    private CheckBox rememberme;
+    private SharedPreferences mprefs;
+    private static final String PREFS_NAME = "PrefsFile";
     String uname, usrpwd;
 
     FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -50,6 +56,8 @@ public class login_user extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_user);
+        mprefs=getSharedPreferences(PREFS_NAME,MODE_PRIVATE);
+
 
         btn_google = findViewById(R.id.googlebtn);
         btn_google.setOnClickListener(new View.OnClickListener(){
@@ -63,6 +71,7 @@ public class login_user extends AppCompatActivity {
         usernameInput = findViewById(R.id.Email);
         passwordInput = findViewById(R.id.password);
 
+        rememberme=(CheckBox) findViewById(R.id.rememberCB);
         loginbtn=(Button) findViewById(R.id.login);
         loginbtn.setOnClickListener(new View.OnClickListener(){
 
@@ -81,7 +90,27 @@ public class login_user extends AppCompatActivity {
                 startActivity(myIntent);
             }
         });
+
+        
+        getPreferencesData();
+    }
+
+    private void getPreferencesData() {
+        SharedPreferences sp=getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
+        if(sp.contains("pref_name")){
+            String u=sp.getString("pref_name","not found.");
+            usernameInput.setText(u.toString());
         }
+        if(sp.contains("pref_pass")){
+            String p=sp.getString("pref_pass","not found.");
+            usernameInput.setText(p.toString());
+        }
+
+        if(sp.contains("pref_check")){
+            Boolean cb=sp.getBoolean("pref_check",false);
+            usernameInput.setText(cb.toString());
+        }
+    }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data){
@@ -197,6 +226,19 @@ public class login_user extends AppCompatActivity {
         Toast.makeText(this, "Failed to connect to database", Toast.LENGTH_SHORT).show();
     }
     public void LoginSuccess() {
+
+        if(rememberme.isChecked()) {
+            Boolean boolIsChecked = rememberme.isChecked();
+            SharedPreferences.Editor editor = mprefs.edit();
+            editor.putString("pref_name", usernameInput.getText().toString());
+            editor.putString("pref_name", passwordInput.getText().toString());
+            editor.putBoolean("pref_check", boolIsChecked);
+            editor.apply();
+            Toast.makeText(login_user.this, "Remembering you", Toast.LENGTH_SHORT).show();
+        }else{
+            mprefs.edit().clear().apply();
+        }
+
 
         Toast.makeText(this, "Successfully logged in!", Toast.LENGTH_SHORT).show();
         Intent loginW = new Intent(getApplicationContext(), HomeScreen.class);
