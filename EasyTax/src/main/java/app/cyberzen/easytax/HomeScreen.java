@@ -85,7 +85,31 @@ public class HomeScreen extends AppCompatActivity {
         FragmentManager manager = getSupportFragmentManager();
         manager.beginTransaction().replace(R.id.content_frame, homeFragment).commit();
 
+        //username
+        TextView username = findViewById(R.id.userNametv);
+        User user = new Gson().fromJson(getIntent().getStringExtra("user"),User.class);
+       // username.setText(user.getUsername());
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
+        googleSignInClient = GoogleSignIn.getClient(this, gso);
 
+        //logout
+        logout=findViewById(R.id.button2);
+        logout.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                googleSignInClient.signOut().addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if(task.isSuccessful()){
+                            startActivity(new Intent(HomeScreen.this, WelcomeActivity.class));
+                            finish();
+
+                        }
+                    }
+                });
+            }
+        });
 
 
         ActionBar mActionBar = getSupportActionBar();
