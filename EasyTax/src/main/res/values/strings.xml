@@ -44,6 +44,17 @@
     <string name="log_out">Log Out</string>
     <string name="change_text_size">Change Text Size</string>
 
+    <string name="setting_color">Select background color:</string>
+    <string name="setting_time">Select time format</string>
+    <string name="color1">White</string>
+    <string name="color2">Yellow</string>
+    <string name="color3">LightGreen</string>
+    <string name="timeFormat1">12 Hours</string>
+    <string name="timeFormat2">24 Hours</string>
+    <string name="setting_font">Select text size:</string>
+    <string name="saveBt">Save</string>
+    <string name="Switch">True / False</string>
+
     <string name="Saved_as">Saved</string>
     <string-array name="fontSize">
         <item>12</item>

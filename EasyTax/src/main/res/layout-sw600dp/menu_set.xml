@@ -1,34 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <androidx.appcompat.widget.LinearLayoutCompat
-
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/settings"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MenuSetting"
     tools:ignore="MissingDefaultResource">
 
-    <TextView
-
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Welcome To The Settings Page"
-        android:textColor="@color/black"
-        android:textStyle="bold"
-        android:textSize="24sp"
-        android:layout_margin="10dp"/>
 
     <TextView
         android:id="@+id/backgroundColor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Select Background Color:"
-        android:textColor="@color/black"
+        android:text="@string/setting_color"
         android:textStyle="bold"
-        android:textSize="22sp"
+        android:textSize="24sp"
         android:layout_margin="10dp"/>
     <RadioGroup
         android:id="@+id/colorGroup"
@@ -37,35 +25,30 @@
         android:layout_margin="5dp">
 
         <RadioButton
-            android:id="@+id/BrownColorRadio"
+            android:id="@+id/radioButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Brown" />
+            android:text="@string/color1" />
 
         <RadioButton
-            android:id="@+id/PurpleColorRadio"
+            android:id="@+id/radioButton2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Purple" />
+            android:text="@string/color2" />
 
         <RadioButton
-            android:id="@+id/GreyColorRadio"
+            android:id="@+id/radioButton3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Grey" />
-
-        <RadioButton
-            android:id="@+id/DefaultColorRadio"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Default" />
+            android:text="@string/color3" />
 
     </RadioGroup>
+
     <TextView
         android:id="@+id/fontID"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/change_text_size"
+        android:text="@string/setting_font"
         android:textStyle="bold"
         android:textSize="24sp"
         android:layout_margin="10dp"/>
@@ -74,15 +57,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"/>
+
+
     <Button
-        android:id="@+id/ButtonSettingsSave"
+        android:id="@+id/button2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Save"
+        android:text="@string/saveBt"
         android:textStyle="bold"
         android:textAlignment="center"
         android:textColor="#FF000000"
-        android:background="#250101"
+        android:background="#2B0202"
         android:layout_margin="30dp"/>
 
 
