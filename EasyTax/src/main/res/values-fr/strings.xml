@@ -58,6 +58,7 @@
     <string name="setting_font">Select text size:</string>
     <string name="saveBt">Save</string>
     <string name="Switch">True / False</string>
+    <string name="remember_me">Remember Me</string>
     <string-array name="fontSize">
         <item>12</item>
         <item>13</item>
