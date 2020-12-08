@@ -72,7 +72,7 @@ public class HomeScreen extends AppCompatActivity {
         //username
         TextView username = findViewById(R.id.userNametv);
         User user = new Gson().fromJson(getIntent().getStringExtra("user"),User.class);
-        username.setText(user.getUsername());
+       // username.setText(user.getUsername());
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
         googleSignInClient = GoogleSignIn.getClient(this, gso);
 
