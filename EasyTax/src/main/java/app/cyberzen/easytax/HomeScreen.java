@@ -35,6 +35,21 @@ public class HomeScreen extends AppCompatActivity {
 
     private GoogleSignInClient googleSignInClient;
 
+    public void openPersonalTaxOne() {
+        Intent intent = new Intent(this, Scroll.class);
+        startActivity(intent);
+    }
+
+    public void openBusinessTaxOne() {
+        Intent intent = new Intent(this, BusinessTaxForm.class);
+        startActivity(intent);
+    }
+
+    public void openFamilyTaxOne() {
+        Intent intent = new Intent(this, FamilyTaxForm.class);
+        startActivity(intent);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,6 +79,7 @@ public class HomeScreen extends AppCompatActivity {
                 openFamilyTaxOne();
             }
         });
+
 
         HomeMenu  homeFragment =  new HomeMenu ();
         FragmentManager manager = getSupportFragmentManager();
@@ -132,6 +148,11 @@ public class HomeScreen extends AppCompatActivity {
                     transaction.addToBackStack(null);
                     transaction.commit();
 
+                } else if (id == R.id.nav_logout) {
+                    newFragment = new MenuSetting();
+                    transaction.replace(R.id.content_frame, newFragment);
+                    transaction.addToBackStack(null);
+                    transaction.commit();
 
                 }
                 Toast.makeText(getApplicationContext(), menuItem.getTitle(),
@@ -142,20 +163,6 @@ public class HomeScreen extends AppCompatActivity {
 
             }
 
-            public void openPersonalTaxOne() {
-                Intent intent = new Intent(this, Scroll.class);
-                startActivity(intent);
-            }
-
-            public void openBusinessTaxOne() {
-                Intent intent = new Intent(this, BusinessTaxForm.class);
-                startActivity(intent);
-            }
-
-            public void openFamilyTaxOne() {
-                Intent intent = new Intent(this, FamilyTaxForm.class);
-                startActivity(intent);
-            }
 
 
 
