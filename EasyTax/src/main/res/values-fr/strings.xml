@@ -59,6 +59,8 @@
     <string name="saveBt">sauvegarder</string>
     <string name="Switch">Vrai / faux</string>
     <string name="remember_me">Remember Me</string>
+    <string name="message">EasyTax</string>
+    <string name="notification_title">EasyTax Detected</string>
     <string-array name="fontSize">
         <item>12</item>
         <item>13</item>
