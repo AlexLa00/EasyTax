@@ -35,6 +35,9 @@ public class HomeScreen extends AppCompatActivity {
     private Button personalTax, registeredComplete;
     private Button familyTax;
     private DrawerLayout mDrawerLayout;
+    private Button logout;
+
+    private GoogleSignInClient googleSignInClient;
 
     public void openPersonalTaxOne() {
         Intent intent = new Intent(this, Scroll.class);
@@ -80,6 +83,9 @@ public class HomeScreen extends AppCompatActivity {
                 openFamilyTaxOne();
             }
         });
+//Signout
+       // logout=findViewById(R.id.nav_logout);
+
 
 
 
@@ -157,7 +163,24 @@ public class HomeScreen extends AppCompatActivity {
         );
 
     }
-
+    private void signOut(){
+        googleSignInClient.signOut()
+                .addOnCompleteListener(this, new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        // ...
+                    }
+                });
+    }
+    private void revokeAccess() {
+        googleSignInClient.revokeAccess()
+                .addOnCompleteListener(this, new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        // ...
+                    }
+                });
+    }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
