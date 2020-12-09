@@ -52,34 +52,31 @@
         android:id="@+id/Help1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="57dp"
+        android:layout_marginTop="12dp"
         android:fontFamily="@font/regular"
         android:text="@string/need_help"
         android:textColor="@color/red"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.441"
-        app:layout_constraintStart_toEndOf="@+id/login"
-        app:layout_constraintTop_toBottomOf="@+id/password"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintHorizontal_bias="0.9"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/login" />
 
     <CheckBox
         android:id="@+id/rememberCB"
         android:layout_width="30dp"
         android:layout_height="30dp"
-        android:layout_marginStart="68dp"
+        android:layout_marginStart="28dp"
         app:layout_constraintBottom_toTopOf="@+id/login"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/password"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/login"
-        android:layout_width="162dp"
-        android:layout_height="53dp"
+        android:layout_width="146dp"
+        android:layout_height="42dp"
         android:layout_gravity="start"
-        android:layout_marginStart="48dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="48dp"
         android:layout_marginBottom="64dp"
@@ -89,10 +86,10 @@
         android:textColor="@color/White"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.144"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/password"
-        app:layout_constraintVertical_bias="0.108" />
+        app:layout_constraintVertical_bias="0.096" />
 
     <TextView
         android:id="@+id/PowerBy"
@@ -145,8 +142,8 @@
         android:id="@+id/Intro"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/hello_there"
         android:fontFamily="@font/bold"
+        android:text="@string/hello_there"
         android:textColor="@color/Black"
         android:textSize="40sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -158,15 +155,15 @@
 
     <Button
         android:id="@+id/googlebtn"
-        android:layout_width="172dp"
-        android:layout_height="45dp"
-        android:layout_marginStart="52dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/button"
-        android:text="@string/googleSignInBtn"
+        android:layout_width="156dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/signinbtn"
         android:textColor="@color/White"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/login" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.393"
+        app:layout_constraintStart_toEndOf="@+id/login"
+        app:layout_constraintTop_toBottomOf="@+id/password" />
 
     <TextView
         android:id="@+id/textView4"
@@ -178,6 +175,6 @@
         app:layout_constraintBottom_toTopOf="@+id/login"
         app:layout_constraintStart_toEndOf="@+id/rememberCB"
         app:layout_constraintTop_toBottomOf="@+id/password"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.068" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
