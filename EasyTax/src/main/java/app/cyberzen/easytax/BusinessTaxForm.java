@@ -13,7 +13,7 @@ public class BusinessTaxForm extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_scroll);
+        setContentView(R.layout.business_form);
 
         cal = (Button) findViewById(R.id.getSum);
         cal.setOnClickListener(new View.OnClickListener() {

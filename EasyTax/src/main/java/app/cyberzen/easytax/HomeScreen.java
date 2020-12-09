@@ -3,6 +3,7 @@ package app.cyberzen.easytax;
         import androidx.annotation.NonNull;
         import androidx.appcompat.app.ActionBar;
         import androidx.appcompat.app.AppCompatActivity;
+        import androidx.appcompat.widget.Toolbar;
         import androidx.core.view.GravityCompat;
         import androidx.drawerlayout.widget.DrawerLayout;
         import androidx.fragment.app.Fragment;
@@ -11,11 +12,14 @@ package app.cyberzen.easytax;
 
         import android.content.Intent;
         import android.os.Bundle;
+        import android.os.Handler;
         import android.view.MenuItem;
         import android.view.View;
         import android.widget.Button;
+        import android.widget.ImageButton;
         import android.widget.TextView;
         import android.widget.Toast;
+
 
         import com.google.android.gms.auth.api.signin.GoogleSignIn;
         import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -30,10 +34,7 @@ package app.cyberzen.easytax;
 public class HomeScreen extends AppCompatActivity {
     private Button personalTax, registeredComplete;
     private Button familyTax;
-    private Button logout;
     private DrawerLayout mDrawerLayout;
-
-    private GoogleSignInClient googleSignInClient;
 
     public void openPersonalTaxOne() {
         Intent intent = new Intent(this, Scroll.class);
@@ -81,36 +82,6 @@ public class HomeScreen extends AppCompatActivity {
         });
 
 
-        HomeMenu  homeFragment =  new HomeMenu ();
-        FragmentManager manager = getSupportFragmentManager();
-        manager.beginTransaction().replace(R.id.content_frame, homeFragment).commit();
-
-        //username
-        TextView username = findViewById(R.id.userNametv);
-        User user = new Gson().fromJson(getIntent().getStringExtra("user"),User.class);
-       // username.setText(user.getUsername());
-        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
-        googleSignInClient = GoogleSignIn.getClient(this, gso);
-
-        //logout
-        logout=findViewById(R.id.button2);
-        logout.setOnClickListener(new View.OnClickListener(){
-
-            @Override
-            public void onClick(View v) {
-                googleSignInClient.signOut().addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        if(task.isSuccessful()){
-                            startActivity(new Intent(HomeScreen.this, WelcomeActivity.class));
-                            finish();
-
-                        }
-                    }
-                });
-            }
-        });
-
 
         ActionBar mActionBar = getSupportActionBar();
         mActionBar.setDisplayHomeAsUpEnabled(true);
@@ -154,17 +125,38 @@ public class HomeScreen extends AppCompatActivity {
                     transaction.addToBackStack(null);
                     transaction.commit();
 
+
                 }
                 Toast.makeText(getApplicationContext(), menuItem.getTitle(),
                         Toast.LENGTH_LONG).show();
-                return false;
+                return true;
             }
         });
+        mDrawerLayout.addDrawerListener(
+                new DrawerLayout.DrawerListener() {
+                    @Override
+                    public void onDrawerSlide(View drawerView, float slideOffset) {
+                        // Respond when the drawer's position changes
+                    }
 
-            }
+                    @Override
+                    public void onDrawerOpened(View drawerView) {
+                        // Respond when the drawer is opened
+                    }
 
+                    @Override
+                    public void onDrawerClosed(View drawerView) {
+                        // Respond when the drawer is closed
+                    }
 
+                    @Override
+                    public void onDrawerStateChanged(int newState) {
+                        // Respond when the drawer motion state changes
+                    }
+                }
+        );
 
+    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -174,9 +166,6 @@ public class HomeScreen extends AppCompatActivity {
                 return true;
 
         }
+
         return super.onOptionsItemSelected(item);
-    }
-}
-
-
-
+    }}
