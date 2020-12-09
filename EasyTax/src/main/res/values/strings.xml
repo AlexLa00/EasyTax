@@ -54,6 +54,8 @@
     <string name="setting_font">Select text size:</string>
     <string name="saveBt">Save</string>
     <string name="Switch">True / False</string>
+    <string name="message">EasyTax</string>
+    <string name="notification_title">EasyTax Detected</string>
 
     <string name="Saved_as">Saved</string>
     <string name="remember_me">Remember Me</string>

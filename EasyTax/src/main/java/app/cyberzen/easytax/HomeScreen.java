@@ -8,11 +8,16 @@ package app.cyberzen.easytax;
         import androidx.fragment.app.Fragment;
         import androidx.fragment.app.FragmentManager;
         import androidx.fragment.app.FragmentTransaction;
+        import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
         import android.content.ClipData;
+        import android.content.ComponentName;
         import android.content.Intent;
+        import android.content.IntentFilter;
+        import android.content.pm.PackageManager;
         import android.net.Uri;
         import android.os.Bundle;
+        import android.util.Log;
         import android.view.MenuItem;
         import android.view.View;
         import android.widget.Button;
@@ -122,11 +127,10 @@ public class HomeScreen extends AppCompatActivity {
                     transaction.commit();
                     //logout=findViewById(R.id.nav_logout);
 
-
-                                        signOut();
-                                        revokeAccess();
-                                        startActivity(new Intent(HomeScreen.this, WelcomeActivity.class));
-                                        finish();
+                    signOut();
+                    revokeAccess();
+                    startActivity(new Intent(HomeScreen.this, WelcomeActivity.class));
+                    finish();
 
 
 
@@ -185,6 +189,7 @@ public class HomeScreen extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
 }
 
 
