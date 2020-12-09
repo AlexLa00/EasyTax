@@ -80,6 +80,7 @@ public class HomeScreen extends AppCompatActivity {
 
 
         ActionBar mActionBar = getSupportActionBar();
+        assert mActionBar != null;
         mActionBar.setDisplayHomeAsUpEnabled(true);
         mActionBar.setHomeAsUpIndicator(R.drawable.ic_drawer);
 
