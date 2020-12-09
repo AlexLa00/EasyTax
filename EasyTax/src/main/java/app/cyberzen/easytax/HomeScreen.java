@@ -23,6 +23,7 @@ package app.cyberzen.easytax;
         import com.google.android.gms.tasks.OnCompleteListener;
         import com.google.android.gms.tasks.Task;
         import com.google.android.material.navigation.NavigationView;
+        import com.google.firebase.auth.FirebaseAuth;
         import com.google.gson.Gson;
 
         import app.cyberzen.easytax.model.User;
@@ -30,7 +31,7 @@ package app.cyberzen.easytax;
 public class HomeScreen extends AppCompatActivity {
     private Button personalTax, registeredComplete;
     private Button familyTax;
-    private Button logout;
+     Button logout;
     private DrawerLayout mDrawerLayout;
 
     private GoogleSignInClient googleSignInClient;
@@ -93,7 +94,7 @@ public class HomeScreen extends AppCompatActivity {
         googleSignInClient = GoogleSignIn.getClient(this, gso);
 
         //logout
-        logout=findViewById(R.id.button2);
+        logout=findViewById(R.id.logoutbtn1);
         logout.setOnClickListener(new View.OnClickListener(){
 
             @Override
@@ -102,9 +103,11 @@ public class HomeScreen extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if(task.isSuccessful()){
+                            signOut();
+                            FirebaseAuth.getInstance().signOut();
+                            revokeAccess();
                             startActivity(new Intent(HomeScreen.this, WelcomeActivity.class));
                             finish();
-
                         }
                     }
                 });
@@ -164,8 +167,24 @@ public class HomeScreen extends AppCompatActivity {
             }
 
 
-
-
+    private void revokeAccess() {
+        googleSignInClient.revokeAccess()
+                .addOnCompleteListener(this, new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        // ...
+                    }
+                });
+    }
+    private void signOut() {
+        googleSignInClient.signOut()
+                .addOnCompleteListener(this, new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        // ...
+                    }
+                });
+    }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
