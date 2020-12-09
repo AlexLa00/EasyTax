@@ -17,29 +17,28 @@
         android:layout_height="40dp"
         android:layout_marginStart="24dp"
         android:layout_marginEnd="24dp"
-        android:background="@drawable/textbox"
+        android:background="@drawable/custom_input"
         android:gravity="center"
-        android:textColorHint="@color/Black"
         android:hint="@string/enter_phone_number"
         android:inputType="textEmailAddress"
         android:selectAllOnFocus="true"
         android:textAllCaps="false"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.346" />
+        app:layout_constraintVertical_bias="0.342" />
 
     <EditText
         android:id="@+id/password"
         android:layout_width="0dp"
         android:layout_height="40dp"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="28dp"
         android:layout_marginEnd="24dp"
-        android:background="@drawable/textbox"
+        android:background="@drawable/custom_input"
         android:gravity="center"
-        android:textColorHint="@color/Black"
         android:hint="@string/prompt_password"
         android:imeActionLabel="@string/action_sign_in_short"
         android:imeOptions="actionDone"
@@ -48,6 +47,53 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Email" />
+
+    <TextView
+        android:id="@+id/Help1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/regular"
+        android:text="@string/need_help"
+        android:textColor="@color/red"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.844"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.633" />
+
+    <CheckBox
+        android:id="@+id/rememberCB"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="40dp"
+        app:layout_constraintBottom_toTopOf="@+id/login"
+        app:layout_constraintEnd_toStartOf="@+id/textView4"
+        app:layout_constraintHorizontal_bias="0.516"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/password"
+        app:layout_constraintVertical_bias="0.792" />
+
+    <Button
+        android:id="@+id/login"
+        android:layout_width="162dp"
+        android:layout_height="53dp"
+        android:layout_gravity="start"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="48dp"
+        android:layout_marginBottom="64dp"
+        android:background="@drawable/button"
+        android:fontFamily="@font/regular"
+        android:text="@string/login"
+        android:textColor="@color/White"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.15"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/password"
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/PowerBy"
@@ -78,28 +124,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/PowerBy"
-
         app:layout_constraintVertical_bias="0.0" />
-
-    <Button
-        android:id="@+id/login"
-        android:layout_width="162dp"
-        android:layout_height="53dp"
-        android:layout_gravity="start"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="48dp"
-        android:layout_marginBottom="64dp"
-        android:background="@drawable/button"
-        android:fontFamily="@font/regular"
-        android:text="@string/login"
-        android:textColor="@color/White"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/password"
-        app:layout_constraintVertical_bias="0.12" />
 
     <ProgressBar
         android:id="@+id/loading"
@@ -121,8 +146,8 @@
         android:id="@+id/Intro"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/hello_there"
         android:fontFamily="@font/bold"
+        android:text="@string/hello_there"
         android:textColor="@color/Black"
         android:textSize="40sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -132,19 +157,28 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.144" />
 
+    <Button
+        android:id="@+id/googlebtn"
+        android:layout_width="172dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="208dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/button"
+        android:text="@string/googleSignInBtn"
+        android:textColor="@color/White"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/login" />
+
     <TextView
-        android:id="@+id/Help1"
+        android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="57dp"
-        android:fontFamily="@font/regular"
-        android:text="@string/need_help"
-        android:textColor="@color/red"
-        android:textSize="18sp"
+        android:text="@string/remember_me"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/login"
-        app:layout_constraintTop_toBottomOf="@+id/password"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintHorizontal_bias="0.161"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.658" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
