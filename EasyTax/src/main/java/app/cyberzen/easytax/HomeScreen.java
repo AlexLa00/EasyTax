@@ -66,61 +66,55 @@ public class HomeScreen extends AppCompatActivity {
         });
 
 
-//        HomeMenu  homeFragment =  new HomeMenu ();
-//        FragmentManager manager = getSupportFragmentManager();
-//        manager.beginTransaction().replace(R.id.content_frame, homeFragment).commit();
-//
-//
-//
-//
-//        ActionBar mActionBar = getSupportActionBar();
-//        mActionBar.setDisplayHomeAsUpEnabled(true);
-//        mActionBar.setHomeAsUpIndicator(R.drawable.ic_drawer);
-//
-//        mDrawerLayout = findViewById(R.id.drawer_layout);
-//
-//        NavigationView mNavigationView = findViewById(R.id.nav_view);
-//        mNavigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
-//            @Override
-//            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-//                Fragment newFragment;
-//                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-//
-//                menuItem.setChecked(true);
-//
-//                mDrawerLayout.closeDrawers();
-//
-//                int id = menuItem.getItemId();
-//                if (id == R.id.nav_save) {
-//                   newFragment = new MenuSave();
-//                   transaction.replace(R.id.content_frame, newFragment);
-//                    transaction.addToBackStack(null);
-//                    transaction.commit();
-//
-//                } else if (id == R.id.nav_help) {
-//                    newFragment = new MenuHelp();
-//                    transaction.replace(R.id.content_frame, newFragment);
-//                    transaction.addToBackStack(null);
-//                    transaction.commit();
-//
-//                } else if (id == R.id.nav_setting) {
-//                    newFragment = new MenuSetting();
-//                    transaction.replace(R.id.content_frame, newFragment);
-//                    transaction.addToBackStack(null);
-//                    transaction.commit();
-//
-//                } else if (id == R.id.nav_logout) {
-//                    newFragment = new MenuSetting();
-//                    transaction.replace(R.id.content_frame, newFragment);
-//                    transaction.addToBackStack(null);
-//                    transaction.commit();
-//
-//                }
-//                Toast.makeText(getApplicationContext(), menuItem.getTitle(),
-//                        Toast.LENGTH_LONG).show();
-//                return false;
-//            }
-//        });
+
+        ActionBar mActionBar = getSupportActionBar();
+        mActionBar.setDisplayHomeAsUpEnabled(true);
+        mActionBar.setHomeAsUpIndicator(R.drawable.ic_drawer);
+
+        mDrawerLayout = findViewById(R.id.drawer_layout);
+
+        NavigationView mNavigationView = findViewById(R.id.nav_view);
+        mNavigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                Fragment newFragment;
+                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+
+                menuItem.setChecked(true);
+
+                mDrawerLayout.closeDrawers();
+
+                int id = menuItem.getItemId();
+                if (id == R.id.nav_save) {
+                   newFragment = new MenuSave();
+                   transaction.replace(R.id.content_frame, newFragment);
+                    transaction.addToBackStack(null);
+                    transaction.commit();
+
+                } else if (id == R.id.nav_help) {
+                    newFragment = new MenuHelp();
+                    transaction.replace(R.id.content_frame, newFragment);
+                    transaction.addToBackStack(null);
+                    transaction.commit();
+
+                } else if (id == R.id.nav_setting) {
+                    newFragment = new MenuSetting();
+                    transaction.replace(R.id.content_frame, newFragment);
+                    transaction.addToBackStack(null);
+                    transaction.commit();
+
+                } else if (id == R.id.nav_logout) {
+                    newFragment = new MenuSetting();
+                    transaction.replace(R.id.content_frame, newFragment);
+                    transaction.addToBackStack(null);
+                    transaction.commit();
+
+                }
+                Toast.makeText(getApplicationContext(), menuItem.getTitle(),
+                        Toast.LENGTH_LONG).show();
+                return false;
+            }
+        });
 
             }
 
@@ -142,16 +136,16 @@ public class HomeScreen extends AppCompatActivity {
 
 
 
-//    @Override
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//        switch (item.getItemId()) {
-//            case android.R.id.home:
-//                mDrawerLayout.openDrawer(GravityCompat.START);
-//                return true;
-//
-//        }
-//        return super.onOptionsItemSelected(item);
-    //}
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                mDrawerLayout.openDrawer(GravityCompat.START);
+                return true;
+
+        }
+        return super.onOptionsItemSelected(item);
+    }
 }
 
 
