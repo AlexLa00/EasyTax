@@ -1,5 +1,5 @@
 package app.cyberzen.easytax;
-
+//CyberZen
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
@@ -174,7 +174,6 @@ public class login_user extends AppCompatActivity {
                 else{
                     usernameInput.setError("username does not exist");
 
-
                 }
             }
 
@@ -186,16 +185,12 @@ public class login_user extends AppCompatActivity {
         });
     }
 
-
     private void initilize() {
         uname = usernameInput.getText().toString().trim();
         usrpwd = passwordInput.getText().toString().trim();
 
 
     }
-
-
-
 
     private boolean Validate() {
         boolean valid = true;
@@ -238,7 +233,6 @@ public class login_user extends AppCompatActivity {
         }else{
             mprefs.edit().clear().apply();
         }
-
 
         Toast.makeText(this, "Successfully logged in!", Toast.LENGTH_SHORT).show();
         Intent loginW = new Intent(getApplicationContext(), HomeScreen.class);

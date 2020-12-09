@@ -1,0 +1,41 @@
+Index: EasyTax/src/main/java/app/cyberzen/easytax/HomeScreen.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package app.cyberzen.easytax;\r\n\r\n        import androidx.annotation.NonNull;\r\n        import androidx.appcompat.app.ActionBar;\r\n        import androidx.appcompat.app.AppCompatActivity;\r\n        import androidx.core.view.GravityCompat;\r\n        import androidx.drawerlayout.widget.DrawerLayout;\r\n        import androidx.fragment.app.Fragment;\r\n        import androidx.fragment.app.FragmentManager;\r\n        import androidx.fragment.app.FragmentTransaction;\r\n\r\n        import android.content.Intent;\r\n        import android.os.Bundle;\r\n        import android.view.MenuItem;\r\n        import android.view.View;\r\n        import android.widget.Button;\r\n        import android.widget.TextView;\r\n        import android.widget.Toast;\r\n\r\n        import com.google.android.gms.auth.api.signin.GoogleSignIn;\r\n        import com.google.android.gms.auth.api.signin.GoogleSignInClient;\r\n        import com.google.android.gms.auth.api.signin.GoogleSignInOptions;\r\n        import com.google.android.gms.tasks.OnCompleteListener;\r\n        import com.google.android.gms.tasks.Task;\r\n        import com.google.android.material.navigation.NavigationView;\r\n        import com.google.gson.Gson;\r\n\r\n        import app.cyberzen.easytax.model.User;\r\n\r\npublic class HomeScreen extends AppCompatActivity {\r\n    private Button personalTax, registeredComplete;\r\n    private Button familyTax;\r\n    private Button logout;\r\n    private DrawerLayout mDrawerLayout;\r\n\r\n    private GoogleSignInClient googleSignInClient;\r\n\r\n    @Override\r\n    protected void onCreate(Bundle savedInstanceState) {\r\n        super.onCreate(savedInstanceState);\r\n        setContentView(R.layout.activity_home_screen);\r\n\r\n        personalTax = (Button) findViewById(R.id.PersonalTax);\r\n        Button businessTax = (Button) findViewById(R.id.BusinessTax);\r\n        familyTax = (Button) findViewById(R.id.FamilyTax);\r\n\r\n        personalTax.setOnClickListener(new View.OnClickListener() {\r\n            @Override\r\n            public void onClick(View v) {\r\n                openPersonalTaxOne();\r\n            }\r\n        });\r\n\r\n        businessTax.setOnClickListener(new View.OnClickListener() {\r\n            @Override\r\n            public void onClick(View v) {\r\n                openBusinessTaxOne();\r\n            }\r\n        });\r\n\r\n        familyTax.setOnClickListener(new View.OnClickListener() {\r\n            @Override\r\n            public void onClick(View v) {\r\n                openFamilyTaxOne();\r\n            }\r\n        });\r\n\r\n        HomeMenu  homeFragment =  new HomeMenu ();\r\n        FragmentManager manager = getSupportFragmentManager();\r\n        manager.beginTransaction().replace(R.id.content_frame, homeFragment).commit();\r\n\r\n\r\n\r\n\r\n        ActionBar mActionBar = getSupportActionBar();\r\n        mActionBar.setDisplayHomeAsUpEnabled(true);\r\n        mActionBar.setHomeAsUpIndicator(R.drawable.ic_drawer);\r\n\r\n        mDrawerLayout = findViewById(R.id.drawer_layout);\r\n\r\n        NavigationView mNavigationView = findViewById(R.id.nav_view);\r\n        mNavigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {\r\n            @Override\r\n            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {\r\n                Fragment newFragment;\r\n                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();\r\n\r\n                menuItem.setChecked(true);\r\n\r\n                mDrawerLayout.closeDrawers();\r\n\r\n                int id = menuItem.getItemId();\r\n                if (id == R.id.nav_save) {\r\n                   newFragment = new MenuSave();\r\n                   transaction.replace(R.id.content_frame, newFragment);\r\n                    transaction.addToBackStack(null);\r\n                    transaction.commit();\r\n\r\n                } else if (id == R.id.nav_help) {\r\n                    newFragment = new MenuHelp();\r\n                    transaction.replace(R.id.content_frame, newFragment);\r\n                    transaction.addToBackStack(null);\r\n                    transaction.commit();\r\n\r\n                } else if (id == R.id.nav_setting) {\r\n                    newFragment = new MenuSetting();\r\n                    transaction.replace(R.id.content_frame, newFragment);\r\n                    transaction.addToBackStack(null);\r\n                    transaction.commit();\r\n\r\n\r\n                }\r\n                Toast.makeText(getApplicationContext(), menuItem.getTitle(),\r\n                        Toast.LENGTH_LONG).show();\r\n                return false;\r\n            }\r\n        });\r\n\r\n            }\r\n\r\n            public void openPersonalTaxOne() {\r\n                Intent intent = new Intent(this, Scroll.class);\r\n                startActivity(intent);\r\n            }\r\n\r\n            public void openBusinessTaxOne() {\r\n                Intent intent = new Intent(this, BusinessTaxForm.class);\r\n                startActivity(intent);\r\n            }\r\n\r\n            public void openFamilyTaxOne() {\r\n                Intent intent = new Intent(this, FamilyTaxForm.class);\r\n                startActivity(intent);\r\n            }\r\n\r\n\r\n\r\n    @Override\r\n    public boolean onOptionsItemSelected(MenuItem item) {\r\n        switch (item.getItemId()) {\r\n            case android.R.id.home:\r\n                mDrawerLayout.openDrawer(GravityCompat.START);\r\n                return true;\r\n\r\n        }\r\n        return super.onOptionsItemSelected(item);\r\n    }\r\n}\r\n\r\n\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- EasyTax/src/main/java/app/cyberzen/easytax/HomeScreen.java	(revision 050aa68a5f19145065d999c0fdbb8031e5a15528)
++++ EasyTax/src/main/java/app/cyberzen/easytax/HomeScreen.java	(date 1607468481086)
+@@ -69,7 +69,31 @@
+         FragmentManager manager = getSupportFragmentManager();
+         manager.beginTransaction().replace(R.id.content_frame, homeFragment).commit();
+ 
++        //username
++        TextView username = findViewById(R.id.userNametv);
++        User user = new Gson().fromJson(getIntent().getStringExtra("user"),User.class);
++       // username.setText(user.getUsername());
++        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
++        googleSignInClient = GoogleSignIn.getClient(this, gso);
++
++        //logout
++        logout=findViewById(R.id.button2);
++        logout.setOnClickListener(new View.OnClickListener(){
+ 
++            @Override
++            public void onClick(View v) {
++                googleSignInClient.signOut().addOnCompleteListener(new OnCompleteListener<Void>() {
++                    @Override
++                    public void onComplete(@NonNull Task<Void> task) {
++                        if(task.isSuccessful()){
++                            startActivity(new Intent(HomeScreen.this, WelcomeActivity.class));
++                            finish();
++
++                        }
++                    }
++                });
++            }
++        });
+ 
+ 
+         ActionBar mActionBar = getSupportActionBar();
