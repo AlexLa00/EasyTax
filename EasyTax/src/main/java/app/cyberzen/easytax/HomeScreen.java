@@ -66,6 +66,12 @@ public class HomeScreen extends AppCompatActivity {
         });
 
 
+//        HomeMenu  homeFragment =  new HomeMenu ();
+//        FragmentManager manager = getSupportFragmentManager();
+//        manager.beginTransaction().replace(R.id.content_frame, homeFragment).commit();
+
+
+
 
         ActionBar mActionBar = getSupportActionBar();
         mActionBar.setDisplayHomeAsUpEnabled(true);

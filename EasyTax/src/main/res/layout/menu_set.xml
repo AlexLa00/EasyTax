@@ -6,6 +6,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#ffffff"
     tools:context=".MenuSetting">
 
     <TextView
@@ -62,10 +63,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/saveBt"
+        android:background="@drawable/button"
         android:textStyle="bold"
         android:textAlignment="center"
         android:textColor="#FF000000"
-        android:background="#2B0202"
         android:layout_margin="30dp"/>
 
 
