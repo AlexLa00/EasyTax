@@ -9,6 +9,7 @@ package app.cyberzen.easytax;
         import androidx.fragment.app.FragmentManager;
         import androidx.fragment.app.FragmentTransaction;
 
+        import android.content.ClipData;
         import android.content.Intent;
         import android.net.Uri;
         import android.os.Bundle;
@@ -33,6 +34,7 @@ public class HomeScreen extends AppCompatActivity {
     private Button familyTax;
     private Button businessTax;
     private DrawerLayout mDrawerLayout;
+    private Button logout;
 
     private GoogleSignInClient googleSignInClient;
 
@@ -40,6 +42,10 @@ public class HomeScreen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_screen);
+
+        User user = new Gson().fromJson(getIntent().getStringExtra("user"),User.class);
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
+        googleSignInClient = GoogleSignIn.getClient(this, gso);
 
         personalTax = (Button) findViewById(R.id.PersonalTax);
         businessTax = (Button) findViewById(R.id.BusinessTax);
@@ -75,6 +81,7 @@ public class HomeScreen extends AppCompatActivity {
 
 
         ActionBar mActionBar = getSupportActionBar();
+        assert mActionBar != null;
         mActionBar.setDisplayHomeAsUpEnabled(true);
         mActionBar.setHomeAsUpIndicator(R.drawable.ic_drawer);
 
@@ -113,6 +120,15 @@ public class HomeScreen extends AppCompatActivity {
                     transaction.replace(R.id.content_frame, newFragment);
                     transaction.addToBackStack(null);
                     transaction.commit();
+                    //logout=findViewById(R.id.nav_logout);
+
+
+                                        signOut();
+                                        revokeAccess();
+                                        startActivity(new Intent(HomeScreen.this, WelcomeActivity.class));
+                                        finish();
+
+
 
                 }
                 Toast.makeText(getApplicationContext(), menuItem.getTitle(),
@@ -138,6 +154,26 @@ public class HomeScreen extends AppCompatActivity {
         startActivity(intent);
     }
 
+
+    private void signOut() {
+        googleSignInClient.signOut()
+                .addOnCompleteListener(this, new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        // ...
+                    }
+                });
+    }
+
+    private void revokeAccess() {
+        googleSignInClient.revokeAccess()
+                .addOnCompleteListener(this, new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        // ...
+                    }
+                });
+    }
 
 
 
