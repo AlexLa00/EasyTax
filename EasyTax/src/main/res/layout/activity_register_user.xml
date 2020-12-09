@@ -104,7 +104,7 @@
         android:layout_marginEnd="24dp"
         android:background="@drawable/custom_input"
         android:gravity="center"
-        android:hint="@string/someone_gmail_com"
+        android:hint="Enter Full Name"
         android:inputType="textEmailAddress"
         android:selectAllOnFocus="true"
         android:textAllCaps="false"

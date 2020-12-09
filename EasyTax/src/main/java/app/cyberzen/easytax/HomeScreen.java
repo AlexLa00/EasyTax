@@ -10,6 +10,7 @@ package app.cyberzen.easytax;
         import androidx.fragment.app.FragmentTransaction;
 
         import android.content.Intent;
+        import android.net.Uri;
         import android.os.Bundle;
         import android.view.MenuItem;
         import android.view.View;
@@ -98,10 +99,8 @@ public class HomeScreen extends AppCompatActivity {
                     transaction.commit();
 
                 } else if (id == R.id.nav_help) {
-                    newFragment = new MenuHelp();
-                    transaction.replace(R.id.content_frame, newFragment);
-                    transaction.addToBackStack(null);
-                    transaction.commit();
+                    Intent myIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://support.google.com/?hl=en/"));
+                    startActivity(myIntent);
 
                 } else if (id == R.id.nav_setting) {
                     newFragment = new MenuSetting();

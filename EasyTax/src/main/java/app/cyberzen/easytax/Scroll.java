@@ -44,11 +44,13 @@ public class Scroll extends AppCompatActivity {
         TextView t1 = (TextView)findViewById(R.id.taxesOwed);
         income = Integer.parseInt(yearlyIncome.getText().toString());
 
+        //Candian income tax reference
+        //https://www.canada.ca/en/revenue-agency/services/tax/individuals/frequently-asked-questions-individuals/canadian-income-tax-rates-individuals-current-previous-years.html
 
         if (status == 0)
         {
             if (income <= 8350)
-                tax = income * 0.10;
+                tax = income * 0.505;
             else if (income <= 33950)
                 tax = 8350 * 0.10 + (income - 8350) * 0.15;
             else if (income <= 82250)

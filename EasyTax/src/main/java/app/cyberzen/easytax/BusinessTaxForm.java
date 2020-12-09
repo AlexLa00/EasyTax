@@ -43,6 +43,8 @@ public class BusinessTaxForm extends AppCompatActivity {
         TextView t1 = (TextView)findViewById(R.id.taxesOwed);
         income = Integer.parseInt(yearlyIncome.getText().toString());
 
+        //Candian income tax reference
+        //https://www.canada.ca/en/revenue-agency/services/tax/individuals/frequently-asked-questions-individuals/canadian-income-tax-rates-individuals-current-previous-years.html
 
         if (status == 0)
         {
