@@ -18,6 +18,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -39,7 +40,7 @@ import app.cyberzen.easytax.model.User;
 
 
 public class login_user extends AppCompatActivity {
-    private Button btn_google;
+    private ImageView btn_google;
     private GoogleAuth googleAuth;
     EditText usernameInput;
     EditText passwordInput;

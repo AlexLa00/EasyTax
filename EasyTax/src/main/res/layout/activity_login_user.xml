@@ -142,6 +142,20 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.3" />
 
+    <ImageView
+        android:id="@+id/googlebtn"
+        android:layout_width="63dp"
+        android:layout_height="56dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="95dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/login"
+        app:srcCompat="@drawable/google"
+        tools:ignore="ContentDescription,MissingConstraints" />
+
     <TextView
         android:id="@+id/Intro"
         android:layout_width="wrap_content"
@@ -157,7 +171,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.144" />
 
-    <Button
+  <!--  <Button
         android:id="@+id/googlebtn"
         android:layout_width="172dp"
         android:layout_height="45dp"
@@ -167,7 +181,7 @@
         android:text="@string/googleSignInBtn"
         android:textColor="@color/White"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/login" />
+        app:layout_constraintTop_toBottomOf="@+id/login" /> -->
 
     <TextView
         android:id="@+id/textView4"
