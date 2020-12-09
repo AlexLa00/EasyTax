@@ -31,10 +31,10 @@
     <string name="save_as">Enregistrer AS</string>
 
 
-    <string name="setting">Setting</string>
-    <string name="report_a_bug">Help</string>
+    <string name="setting">Réglage</string>
+    <string name="report_a_bug">Aidez-moi</string>
     <string name="easy_tax">Easy TAX</string>
-    <string name="someone_gmail_com">Someone@gmail.com</string>
+    <string name="someone_gmail_com">Quelquun@gmail.com</string>
 
 
     <string name="txt_message">Aucun texte disponible</string>
@@ -43,21 +43,21 @@
     <string name="phone_hint">6475555555</string>
     <string name="registration">Registration</string>
     <string name="phone">Phone</string>
-    <string name="googleSignInBtn">sign in with google</string>
-    <string name="log_out">Log Out</string>
-    <string name="change_text_size">Change Text Size</string>
-    <string name="Saved_as">Saved</string>
+    <string name="googleSignInBtn">connectezvousavecgoogle@gmail.com</string>
+    <string name="log_out">Se déconnecter</string>
+    <string name="change_text_size">Changerlatailledutexte</string>
+    <string name="Saved_as">Enregistrée</string>
 
-    <string name="setting_color">Select background color:</string>
-    <string name="setting_time">Select time format</string>
-    <string name="color1">White</string>
-    <string name="color2">Yellow</string>
-    <string name="color3">LightGreen</string>
+    <string name="setting_color">Sélectionnez la couleur darrière-plan:</string>
+    <string name="setting_time">Sélectionnez le format de lheure</string>
+    <string name="color1">Blanche</string>
+    <string name="color2">Jaune</string>
+    <string name="color3">Vert clair</string>
     <string name="timeFormat1">12 Hours</string>
     <string name="timeFormat2">24 Hours</string>
-    <string name="setting_font">Select text size:</string>
-    <string name="saveBt">Save</string>
-    <string name="Switch">True / False</string>
+    <string name="setting_font">Sélectionnez la taille du texte:</string>
+    <string name="saveBt">sauvegarder</string>
+    <string name="Switch">Vrai / faux</string>
     <string name="remember_me">Remember Me</string>
     <string-array name="fontSize">
         <item>12</item>
