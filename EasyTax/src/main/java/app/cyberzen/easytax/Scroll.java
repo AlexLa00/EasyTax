@@ -2,61 +2,71 @@ package app.cyberzen.easytax;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.TextView;
 
 public class Scroll extends AppCompatActivity {
-    EditText tx1, tx2, tx3, tx4, tx5, tx6, tx7, tx8, tx9, tx10, tx11, tx12;
-    Button cal;
+    Button submit;
+    EditText yearlyincome;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scroll);
+        submit = (Button)findViewById(R.id.personalTaxRefund);
+        yearlyincome = (EditText)findViewById(R.id.yearlyIncome);
 
-        cal = (Button) findViewById(R.id.getSum);
-        cal.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                // Do something in response to button click
-                tx1 = (EditText) findViewById(R.id.PTFA1);
-                tx2 = (EditText) findViewById(R.id.PTFA2);
-                tx3 = (EditText) findViewById(R.id.PTFA3);
-                tx4 = (EditText) findViewById(R.id.PTFA4);
 
-                float num1 = Float.parseFloat(tx1.getText().toString());
-                float num2 = Float.parseFloat(tx2.getText().toString());
-                float num3 = Float.parseFloat(tx3.getText().toString());
-                float num4 = Float.parseFloat(tx4.getText().toString());
-
-                tx5 = (EditText) findViewById(R.id.PTFA1);
-                tx6 = (EditText) findViewById(R.id.PTFA2);
-                tx7 = (EditText) findViewById(R.id.PTFA3);
-                tx8 = (EditText) findViewById(R.id.PTFA4);
-
-                float num5 = Float.parseFloat(tx5.getText().toString());
-                float num6 = Float.parseFloat(tx6.getText().toString());
-                float num7 = Float.parseFloat(tx7.getText().toString());
-                float num8 = Float.parseFloat(tx8.getText().toString());
-
-                tx9 = (EditText) findViewById(R.id.PTFA1);
-                tx10 = (EditText) findViewById(R.id.PTFA2);
-                tx11= (EditText) findViewById(R.id.PTFA3);
-                tx12 = (EditText) findViewById(R.id.PTFA4);
-
-                float num9 = Float.parseFloat(tx9.getText().toString());
-                float num10 = Float.parseFloat(tx10.getText().toString());
-                float num11 = Float.parseFloat(tx11.getText().toString());
-                float num12 = Float.parseFloat(tx12.getText().toString());
-
-                float sum = num1 + num2 + num3 + num4 + num5 + num6 + num7 + num8 + num9 + num10 + num11 + num12; //Answer
-
-                EditText editText = (EditText)findViewById(R.id.PTFA13);
-                editText.setText(String.valueOf(sum));
+        submit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onButtonCalculateClick(view);
+                String income = yearlyincome.getText().toString();
+                Intent intent = new Intent(Scroll.this, TotalClaimAmount.class);
+                intent.putExtra("key",income);
+                startActivity(intent);
             }
         });
+    }
+
+    public void onButtonCalculateClick(View v) {
+        double income, tax, total;
+        int status = 0;
+        tax = 0;
+
+        EditText yearlyIncome = (EditText)findViewById(R.id.yearlyIncome);
+        TextView t1 = (TextView)findViewById(R.id.taxesOwed);
+        income = Integer.parseInt(yearlyIncome.getText().toString());
 
 
+        if (status == 0)
+        {
+            if (income <= 8350)
+                tax = income * 0.10;
+            else if (income <= 33950)
+                tax = 8350 * 0.10 + (income - 8350) * 0.15;
+            else if (income <= 82250)
+                tax = 8350 * 0.10 + (33950 - 8350) * 0.15 + (income - 33950) * 0.25;
+            else if (income <= 171550)
+                tax = 8350 * 0.10 + (33950 - 8350) * 0.15 + (82250 - 33950) * 0.25 +
+                        (income - 82250) * 0.28;
+            else if (income <= 372950)
+                tax = 8350 * 0.10 + (33950 - 8350) * 0.15 + (82250 - 33950) * 0.25 +
+                        (171550 - 82250) * 0.28 + (income - 171550) * 0.33;
+            else
+                tax = 8350 * 0.10 + (33950 - 8350) * 0.15 +
+                        (82250 - 33950) * 0.25 + (171550 - 82250) * 0.28 +
+                        (372950 - 171550) * 0.33 + (income - 372950) * 0.35;
+        }
+        else{}
+        total = ((tax * 100) / 100.0);
+        yearlyIncome.setText("$" + Double.toString(total));
     }
 }
 

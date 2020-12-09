@@ -4,7 +4,7 @@ apply plugin: 'com.google.gms.google-services'
 android {
     signingConfigs {
         release {
-            storeFile file('C:\\Users\\nickr\\OneDrive\\Documents\\Computer Engineering Techy\\Fifth 5 Semester\\CENG 319 - SOFTWARE PROJECT\\project\\release_keystore.jks')
+            storeFile file('C:\\Users\\Alex La\\AndroidStudioProjects\\EasyTax\\EasyTax\\release\\release_keystore.jks')
             storePassword 'easytax'
             keyAlias 'key0'
             keyPassword 'easytax'
@@ -28,6 +28,7 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.release
+            multiDexEnabled true
         }
     }
 }
