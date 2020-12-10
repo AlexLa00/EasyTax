@@ -10,6 +10,7 @@ package app.cyberzen.easytax;
         import androidx.fragment.app.FragmentTransaction;
         import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
+        import android.annotation.SuppressLint;
         import android.content.ClipData;
         import android.content.ComponentName;
         import android.content.Intent;
@@ -110,9 +111,9 @@ public class HomeScreen extends AppCompatActivity {
                     transaction.addToBackStack(null);
                     transaction.commit();
 
-                } else if (id == R.id.nav_help) {
-                    Intent myIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://support.google.com/?hl=en/"));
-                    startActivity(myIntent);
+//                } else if (id == R.id.nav_help) {
+//                    Intent myIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://support.google.com/?hl=en/"));
+//                    startActivity(myIntent);
 
                 } else if (id == R.id.nav_setting) {
                     newFragment = new MenuSetting();
@@ -142,6 +143,22 @@ public class HomeScreen extends AppCompatActivity {
         });
 
             }
+
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+
+            case R.id.Help33:
+                Intent myIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://support.google.com/?hl=en/"));
+                startActivity(myIntent);
+                break;
+
+            case android.R.id.home:
+                mDrawerLayout.openDrawer(GravityCompat.START);
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
 
     public void openPersonalTaxOne() {
         Intent intent = new Intent(this, Scroll.class);
@@ -179,16 +196,7 @@ public class HomeScreen extends AppCompatActivity {
                 });
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                mDrawerLayout.openDrawer(GravityCompat.START);
-                return true;
 
-        }
-        return super.onOptionsItemSelected(item);
-    }
 
 }
 

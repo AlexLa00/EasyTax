@@ -61,6 +61,7 @@
     <string name="remember_me">Remember Me</string>
     <string name="message">EasyTax</string>
     <string name="notification_title">EasyTax Detected</string>
+    <string name="help">Help</string>
     <string-array name="fontSize">
         <item>12</item>
         <item>13</item>
