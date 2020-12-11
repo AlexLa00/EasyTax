@@ -74,10 +74,6 @@ public class RegisterUser extends AppCompatActivity {
     public boolean Validate(){
         boolean valid=true;
 
-        if(name.isEmpty()||name.length()<3){
-            rname.setError("Please enter a valid name");
-            valid=false;
-        }
         if(phone.isEmpty()||phone.length()!=10){
             rphone.setError("Please enter a valid phone number");
             valid=false;

@@ -14,17 +14,25 @@ import com.google.android.material.snackbar.Snackbar;
 public class FamilyTaxForm extends AppCompatActivity {
     Button submit;
     EditText yearlyincome;
-    EditText previousIncome;
     Button saved;
-
+    //tax algorithm
+    private EditText emp_incomeInput,cap_gainInput,Tax_paidInput, rrspInput,numKidsInput;
+    private Double employ_inc,cap_gain,rate,taxable,tot_tax;
+    private Double taxes_paid, rrsp,rrsp_gain,tot_ded;
+    Double uget,tax_due;
+    int kids;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.family_form);
-        submit = (Button)findViewById(R.id.personalTaxRefund);
+        initilize();
+        submit = (Button)findViewById(R.id.personalTaxRefundfam);
+        employ_inc=cap_gain=rate=taxable=tax_due=tot_tax=
+                taxes_paid=rrsp=rrsp_gain=tot_ded= uget=0.00;
+        kids =0;
         yearlyincome = (EditText)findViewById(R.id.yearlyIncome);
-        saved = (Button)findViewById(R.id.saveTaxRefund1);
+        saved = (Button)findViewById(R.id.saveTaxRefund2fam);
 
         saved.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -38,51 +46,69 @@ public class FamilyTaxForm extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 onButtonCalculateClick(view);
-                String income = yearlyincome.getText().toString();
+                String saved = "";
+                if(uget<0){
+                    uget.toString();
+                    saved = "owe $"+uget;}
+                else {
+                    uget.toString();
+                    saved = "Refund $"+uget;}
+
                 Intent intent = new Intent(FamilyTaxForm.this, TotalClaimAmount.class);
-                intent.putExtra("key",income);
+                intent.putExtra("key",saved);
                 startActivity(intent);
             }
         });
     }
 
+    private void initilize() {
+        emp_incomeInput=(EditText) findViewById(R.id.yearlyIncomefam);
+        cap_gainInput=(EditText) findViewById(R.id.yearlyIncome2fam);
+        Tax_paidInput=(EditText) findViewById(R.id.paidIncome2fam);
+        rrspInput=(EditText) findViewById(R.id.paidIncome3fam);
+        numKidsInput=(EditText) findViewById(R.id.numofKidsFam);
+    }
+    public void init(){
+        if(emp_incomeInput.getText().toString().isEmpty()){emp_incomeInput.setText("0.00");}
+        if(cap_gainInput.getText().toString().isEmpty()){cap_gainInput.setText("0.00");}
+        if(Tax_paidInput.getText().toString().isEmpty()){Tax_paidInput.setText("0.00");}
+        if(rrspInput.getText().toString().isEmpty()){rrspInput.setText("0.00");}
+        if(numKidsInput.getText().toString().isEmpty()){numKidsInput.setText("0");}
+
+        employ_inc = Double.parseDouble(emp_incomeInput.getText().toString());
+        cap_gain = Double.parseDouble(cap_gainInput.getText().toString());
+        taxes_paid = Double.parseDouble(Tax_paidInput.getText().toString());
+        rrsp = Double.parseDouble(rrspInput.getText().toString());
+        kids = Integer.parseInt(numKidsInput.getText().toString());
+
+
+    }
+
     public void onButtonCalculateClick(View v) {
-        double income, tax, total;
-        int status = 0;
-        int pIncome;
-        tax = 0;
+        init();
+        taxable=employ_inc+(cap_gain*0.5);
 
-        EditText yearlyIncome = (EditText)findViewById(R.id.yearlyIncome);
-        TextView t1 = (TextView)findViewById(R.id.taxesOwed);
-        income = Integer.parseInt(yearlyIncome.getText().toString());
-        previousIncome = (EditText) findViewById(R.id.paidIncome1);
-        pIncome = Integer.parseInt(previousIncome.getText().toString());
+        //deductions
+        rrsp_gain=rrsp*0.027;
+        tot_ded= taxes_paid+rrsp_gain;
 
-        //Canadian income tax reference
-        //https://www.canada.ca/en/revenue-agency/services/tax/individuals/frequently-asked-questions-individuals/canadian-income-tax-rates-individuals-current-previous-years.html
+        //find rate
+        if(taxable<46605.00){rate=0.15;}
+        if(taxable>46605.00&&taxable <93308.00){rate=0.205;}
+        if(taxable>93308.00 &&taxable <144489.00){rate=0.26;}
+        if(taxable>144489.00 &&taxable <205842.00){rate=0.29;}
+        if(taxable>205842.00){rate=0.33;}
 
-        if (status == 0)
-        {
-            if (income <= 16700)
-                tax = ((income * 0.505) - pIncome);
-            else if (income <= 67900)
-                tax = (16700 * 0.10 + (income - 16700) * 0.15) - pIncome;
-            else if (income <= 137050)
-                tax = (16700 * 0.10 + (67900 - 16700) * 0.15 + (income - 67900) * 0.25) - pIncome;
-            else if (income <= 208850)
-                tax = (16700 * 0.10 + (67900 - 16700) * 0.15 + (137050 - 67900) * 0.25 +
-                        (income - 137050) * 0.28) - pIncome;
-            else if (income <= 372950)
-                tax = (16700 * 0.10 + (67900 - 16700) * 0.15 + (137050 - 67900) * 0.25 +
-                        (208850 - 137050) * 0.28 + (income - 208850) * 0.33) - pIncome;
-            else
-                tax = (16700 * 0.10 + (67900 - 16700) * 0.15 +
-                        (137050 - 67900) * 0.25 + (208850 - 137050) * 0.28 +
-                        (372950 - 208850) * 0.33 + (income - 372950) * 0.35) - pIncome;
-        }
-        else{}
-        total = ((tax * 100) / 100.0);
-        yearlyIncome.setText("$" + Double.toString(total));
+        //kids
+        if(kids==1){rate=rate-0.01;}
+        if(kids>1&&kids<=3){rate=rate-0.023;}
+        if(kids<3){rate=rate-0.032;}
+
+        //total tax
+        tot_tax=taxable*rate;
+        //the end result
+        uget=tot_ded-tot_tax;
+
     }
 }
 
