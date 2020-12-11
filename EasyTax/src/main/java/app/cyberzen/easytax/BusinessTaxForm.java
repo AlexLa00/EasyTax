@@ -13,6 +13,7 @@ public class BusinessTaxForm extends AppCompatActivity {
     Button submit;
     EditText yearlyincome;
     EditText paidIncome3;
+    EditText previousIncome;
 
 
     @Override
@@ -41,12 +42,15 @@ public class BusinessTaxForm extends AppCompatActivity {
     public void onButtonCalculateClick(View v) {
         double income, pay, tax, total;
         int status = 0;
+        int pIncome;
         tax = 0;
 
         EditText yearlyIncome = (EditText)findViewById(R.id.yearlyIncome);
         EditText paidIncome3 = (EditText)findViewById(R.id.paidIncome3);
         TextView t1 = (TextView)findViewById(R.id.taxesOwed);
         income = Integer.parseInt(yearlyIncome.getText().toString());
+        previousIncome = (EditText) findViewById(R.id.paidIncome3);
+        pIncome = Integer.parseInt(previousIncome.getText().toString());
         pay = Integer.parseInt(paidIncome3.getText().toString());
 
 
@@ -56,21 +60,21 @@ public class BusinessTaxForm extends AppCompatActivity {
         if (status == 0)
         {
             if (income <= 11950)
-                tax = income  * 0.10;
+                tax = (income  * 0.10)- pIncome;
             else if (income <= 45500)
-                tax = 11950 * 0.10 + (income - 11950) * 0.15 ;
+                tax = (11950 * 0.10 + (income - 11950) * 0.15) - pIncome;
             else if (income <= 117450)
-                tax = 11950 * 0.10 + (45500 - 11950) * 0.15 + (income - 45500) * 0.25 ;
+                tax = (11950 * 0.10 + (45500 - 11950) * 0.15 + (income - 45500) * 0.25)- pIncome ;
             else if (income <= 190200)
-                tax = 11950 * 0.10 + (45500 - 11950) * 0.15 + (117450 - 45500) * 0.25 +
-                        (income - 117450) * 0.28;
+                tax = (11950 * 0.10 + (45500 - 11950) * 0.15 + (117450 - 45500) * 0.25 +
+                        (income - 117450) * 0.28) - pIncome;
             else if (income <= 372950)
-                tax = 11950 * 0.10 + (45500 - 11950) * 0.15 + (117450 - 45500) * 0.25  +
-                        (190200 - 117450) * 0.28 + (income - 190200) * 0.33;
+                tax = (11950 * 0.10 + (45500 - 11950) * 0.15 + (117450 - 45500) * 0.25  +
+                        (190200 - 117450) * 0.28 + (income - 190200) * 0.33) -pIncome;
             else
-                tax = 11950 * 0.10 + (45500 - 11950) * 0.15 +
+                tax = (11950 * 0.10 + (45500 - 11950) * 0.15 +
                         (117451 - 45500) * 0.25 + (190200 - 117450) * 0.28 +
-                        (372950 - 190200) * 0.33 + (income - 372950) * 0.35  ;
+                        (372950 - 190200) * 0.33 + (income - 372950) * 0.35) - pIncome ;
         }
         else{}
         total = ((tax * 100) / 100.0) ;
