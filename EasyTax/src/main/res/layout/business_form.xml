@@ -69,7 +69,7 @@
         android:textSize="20sp" />
 
     <EditText
-        android:id="@+id/PaidIncome3"
+        android:id="@+id/paidIncome3"
         android:layout_width="320dp"
         android:layout_height="50dp"
         android:layout_alignParentLeft="true"
