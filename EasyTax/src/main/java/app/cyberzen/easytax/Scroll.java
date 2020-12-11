@@ -55,8 +55,6 @@ public class Scroll extends AppCompatActivity {
         Tax_paidInput=(EditText) findViewById(R.id.paidIncome2);
         rrspInput=(EditText) findViewById(R.id.paidIncome3);
 
-
-
     }
 
     public void init(){
@@ -91,7 +89,7 @@ public class Scroll extends AppCompatActivity {
         tot_tax=taxable*rate;
 
         //the end result
-        uget=tot_ded-tot_tax;
+                uget=tot_ded-tot_tax;
 
     }
 }
