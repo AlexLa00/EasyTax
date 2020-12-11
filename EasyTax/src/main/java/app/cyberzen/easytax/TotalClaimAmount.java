@@ -1,6 +1,7 @@
 package app.cyberzen.easytax;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -28,6 +29,7 @@ public class TotalClaimAmount extends AppCompatActivity {
         homebutton = (Button) findViewById(R.id.homebtn);
         saved = (Button)findViewById(R.id.savebtn2);
 
+
         saved.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -48,5 +50,7 @@ public class TotalClaimAmount extends AppCompatActivity {
         String income = getIntent().getStringExtra("key");
 
         amount.setText(income);
+
     }
+
 }

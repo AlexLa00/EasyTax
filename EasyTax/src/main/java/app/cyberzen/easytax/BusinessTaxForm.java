@@ -1,7 +1,6 @@
 package app.cyberzen.easytax;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,6 +11,8 @@ import android.widget.TextView;
 
 import com.google.android.material.snackbar.Snackbar;
 
+import java.time.Instant;
+
 public class BusinessTaxForm extends AppCompatActivity {
     Button submit;
     EditText yearlyincome;
@@ -19,14 +20,14 @@ public class BusinessTaxForm extends AppCompatActivity {
     EditText previousIncome;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.business_form);
-        submit = (Button)findViewById(R.id.personalTaxRefund);
-        yearlyincome = (EditText)findViewById(R.id.yearlyIncome);
-        saved = (Button)findViewById(R.id.saveTaxRefund4);
+        submit = (Button) findViewById(R.id.personalTaxRefund);
+        yearlyincome = (EditText) findViewById(R.id.yearlyIncome);
+        saved = (Button) findViewById(R.id.saveTaxRefund4);
+
 
         saved.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -43,12 +44,25 @@ public class BusinessTaxForm extends AppCompatActivity {
                 String income = yearlyincome.getText().toString();
 
                 Intent intent = new Intent(BusinessTaxForm.this, TotalClaimAmount.class);
+
+
                 intent.putExtra("key", income);
+
 
                 startActivity(intent);
             }
         });
-    }
+
+//        @Override
+//        public void onClick (View view){
+//            openNotification();
+//        }
+//    }
+//
+//    public void openNotification() {
+//        Intant intant = new Intant(this, NotificationTax.class);
+//        startActivity(intant);
+  }
 
     public void onButtonCalculateClick(View v) {
         double income, tax, total;
@@ -61,6 +75,7 @@ public class BusinessTaxForm extends AppCompatActivity {
         pIncome = Integer.parseInt(previousIncome.getText().toString());
         TextView t1 = (TextView) findViewById(R.id.taxesOwed);
         income = Integer.parseInt(yearlyIncome.getText().toString());
+
 
 
 
@@ -89,6 +104,9 @@ public class BusinessTaxForm extends AppCompatActivity {
         total = ((tax * 100) / 100.0);
         yearlyIncome.setText("$" + Double.toString(total));
 
+
     }
+
+
 
 }
