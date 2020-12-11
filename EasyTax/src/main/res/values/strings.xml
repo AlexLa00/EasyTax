@@ -60,6 +60,8 @@
     <string name="Saved_as">Saved</string>
     <string name="remember_me">Remember Me</string>
     <string name="help">Help</string>
+    <string name="income">Income</string>
+    <string name="deductions">Deductions</string>
     <string-array name="fontSize">
         <item>12</item>
         <item>13</item>
