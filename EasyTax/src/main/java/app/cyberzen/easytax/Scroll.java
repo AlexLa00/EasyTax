@@ -54,6 +54,7 @@ public class Scroll extends AppCompatActivity {
         int pIncome;
         tax = 0;
 
+        previousIncome = (EditText) findViewById(R.id.paidIncome2);
         EditText yearlyIncome = (EditText)findViewById(R.id.yearlyIncome);
         TextView t1 = (TextView)findViewById(R.id.taxesOwed);
         income = Integer.parseInt(yearlyIncome.getText().toString());
