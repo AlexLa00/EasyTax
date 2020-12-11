@@ -141,7 +141,7 @@ public class HomeScreen extends AppCompatActivity {
         switch (item.getItemId()) {
 
             case R.id.Help33:
-                Intent myIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://support.google.com/?hl=en/"));
+                Intent myIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.canada.ca/en/revenue-agency/services/tax/individuals/topics/about-your-tax-return/refunds-status.html"));
                 startActivity(myIntent);
                 break;
 
