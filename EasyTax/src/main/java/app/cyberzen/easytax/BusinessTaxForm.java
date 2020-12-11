@@ -17,17 +17,25 @@ public class BusinessTaxForm extends AppCompatActivity {
     Button submit;
     EditText yearlyincome;
     Button saved;
-    EditText previousIncome;
+
+    //tax algorithm
+    private EditText emp_incomeInput,cap_gainInput,Tax_paidInput, rrspInput;
+    private Double employ_inc,cap_gain,rate,taxable,tot_tax;
+    private Double taxes_paid, rrsp,rrsp_gain,tot_ded;
+    Double uget,tax_due;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.business_form);
-        submit = (Button) findViewById(R.id.personalTaxRefund);
         yearlyincome = (EditText) findViewById(R.id.yearlyIncome);
-        saved = (Button) findViewById(R.id.saveTaxRefund4);
+        saved = (Button) findViewById(R.id.saveTaxRefund2bus);
 
+        initilize();
+        submit = (Button)findViewById(R.id.personalTaxRefundbus);
+        employ_inc=cap_gain=rate=taxable=tax_due=tot_tax=
+                taxes_paid=rrsp=rrsp_gain=tot_ded= uget=0.00;
 
         saved.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -41,69 +49,68 @@ public class BusinessTaxForm extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 onButtonCalculateClick(view);
-                String income = yearlyincome.getText().toString();
+                String saved = "";
+                if(uget<0){
+                    uget.toString();
+                    saved = "owe $"+uget;}
+                else {
+                    uget.toString();
+                    saved = "Ret $"+uget;}
+                if(saved.length()>13){saved=saved.substring(0, 13);}
 
                 Intent intent = new Intent(BusinessTaxForm.this, TotalClaimAmount.class);
-
-
-                intent.putExtra("key", income);
-
-
+                intent.putExtra("key",saved);
                 startActivity(intent);
             }
         });
 
-//        @Override
-//        public void onClick (View view){
-//            openNotification();
-//        }
-//    }
-//
-//    public void openNotification() {
-//        Intant intant = new Intant(this, NotificationTax.class);
-//        startActivity(intant);
+
   }
 
+    public void initilize(){
+        emp_incomeInput=(EditText) findViewById(R.id.yearlyIncomebus);
+        cap_gainInput=(EditText) findViewById(R.id.yearlyIncome2bus);
+        Tax_paidInput=(EditText) findViewById(R.id.paidIncome2bus);
+        rrspInput=(EditText) findViewById(R.id.paidIncome3bus);
+
+    }
+
+    public void init(){
+        if(emp_incomeInput.getText().toString().isEmpty()){emp_incomeInput.setText("0");}
+        if(cap_gainInput.getText().toString().isEmpty()){cap_gainInput.setText("0");}
+        if(Tax_paidInput.getText().toString().isEmpty()){Tax_paidInput.setText("0");}
+        if(rrspInput.getText().toString().isEmpty()){rrspInput.setText("0");}
+
+        employ_inc = Double.parseDouble(emp_incomeInput.getText().toString());
+        cap_gain = Double.parseDouble(cap_gainInput.getText().toString());
+        taxes_paid = Double.parseDouble(Tax_paidInput.getText().toString());
+        rrsp = Double.parseDouble(rrspInput.getText().toString());
+
+
+    }
     public void onButtonCalculateClick(View v) {
-        double income, tax, total;
-        int status = 0;
-        int pIncome;
-        tax = 0;
-
-        EditText yearlyIncome = (EditText) findViewById(R.id.yearlyIncome);
-        previousIncome = (EditText) findViewById(R.id.paidIncome3);
-        pIncome = Integer.parseInt(previousIncome.getText().toString());
-        TextView t1 = (TextView) findViewById(R.id.taxesOwed);
-        income = Integer.parseInt(yearlyIncome.getText().toString());
+        init();
+        taxable=employ_inc+(cap_gain*0.5);
 
 
+        //find rate
+        if(taxable<5000000.00){rate=0.15+0.025;}
+        if(taxable>500000.00&&taxable <1000000.00){rate=0.205+0.15;}
+        if(taxable>1000000.00){rate=0.33+0.20;}
 
+        //deductions
+        if(rrsp<20000&&rrsp>5000){rate=rate-0.02;}
+        if(rrsp>20000&&rrsp<40000){rate=rate-0.04;}
+        if(rrsp>20000&&rrsp<40000){rate=rate-0.05;}
+        if(rrsp>100000&&rrsp<300000){rate=rate-0.08;}
+        if(rrsp>300000){rate=rate-0.11;}
+        tot_ded= taxes_paid;
 
-        //Candian income tax reference
-        //https://www.canada.ca/en/revenue-agency/services/tax/individuals/frequently-asked-questions-individuals/canadian-income-tax-rates-individuals-current-previous-years.html
+        //total tax
+        tot_tax=taxable*rate;
 
-        if (status == 0) {
-            if (income <= 11950)
-                tax = (income  * 0.10)- pIncome;
-            else if (income <= 45500)
-                tax = (11950 * 0.10 + (income - 11950) * 0.15) - pIncome;
-            else if (income <= 117450)
-                tax = (11950 * 0.10 + (45500 - 11950) * 0.15 + (income - 45500) * 0.25)- pIncome ;
-            else if (income <= 190200)
-                tax = (11950 * 0.10 + (45500 - 11950) * 0.15 + (117450 - 45500) * 0.25 +
-                        (income - 117450) * 0.28) - pIncome;
-            else if (income <= 372950)
-                tax = (11950 * 0.10 + (45500 - 11950) * 0.15 + (117450 - 45500) * 0.25  +
-                        (190200 - 117450) * 0.28 + (income - 190200) * 0.33) -pIncome;
-            else
-                tax = (11950 * 0.10 + (45500 - 11950) * 0.15 +
-                        (117451 - 45500) * 0.25 + (190200 - 117450) * 0.28 +
-                        (372950 - 190200) * 0.33 + (income - 372950) * 0.35) - pIncome ;
-        } else {
-        }
-        total = ((tax * 100) / 100.0);
-        yearlyIncome.setText("$" + Double.toString(total));
-
+        //the end result
+        uget=tot_ded-tot_tax;
 
     }
 

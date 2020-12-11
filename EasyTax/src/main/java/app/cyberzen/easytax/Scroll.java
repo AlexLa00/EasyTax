@@ -13,7 +13,6 @@ import android.widget.TextView;
 public class Scroll extends AppCompatActivity {
    private Button submit;
    private EditText emp_incomeInput,cap_gainInput,Tax_paidInput, rrspInput;
-   private EditText yearlyincome;
    private Double employ_inc,cap_gain,rate,taxable,tot_tax;
    private Double taxes_paid, rrsp,rrsp_gain,tot_ded;
    Double uget,tax_due;
@@ -40,7 +39,8 @@ public class Scroll extends AppCompatActivity {
                     saved = "owe $"+uget;}
                 else {
                     uget.toString();
-                    saved = "Refund $"+uget;}
+                    saved = "Ret $"+uget;}
+                if(saved.length()>13){saved=saved.substring(0, 13);}
 
                 Intent intent = new Intent(Scroll.this, TotalClaimAmount.class);
                 intent.putExtra("key",saved);

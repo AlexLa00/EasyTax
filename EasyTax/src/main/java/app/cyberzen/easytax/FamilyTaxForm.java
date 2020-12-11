@@ -52,7 +52,8 @@ public class FamilyTaxForm extends AppCompatActivity {
                     saved = "owe $"+uget;}
                 else {
                     uget.toString();
-                    saved = "Refund $"+uget;}
+                    saved = "Ret $"+uget;}
+                if(saved.length()>13){saved=saved.substring(0, 13);}
 
                 Intent intent = new Intent(FamilyTaxForm.this, TotalClaimAmount.class);
                 intent.putExtra("key",saved);

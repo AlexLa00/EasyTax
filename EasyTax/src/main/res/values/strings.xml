@@ -63,6 +63,7 @@
     <string name="income">Income</string>
     <string name="deductions">Deductions</string>
     <string name="numogkids"># of Children under 18years</string>
+    <string name="enter_yearly_profit">Enter Yearly Income</string>
     <string-array name="fontSize">
         <item>12</item>
         <item>13</item>
