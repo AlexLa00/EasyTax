@@ -161,5 +161,10 @@
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
+    <color name="sb__snack_bkgnd">#323232</color>
+    <color name="sb__snack_alert_bkgnd">#ffff4444</color>
+    <color name="sb__transparent">#00000000</color>
+    <color name="sb__dim_white">#20FFFFFF</color>
+    <color name="sb__button_text_color">#FB6541</color>
 
 </resources>
