@@ -37,11 +37,10 @@ package app.cyberzen.easytax;
         import app.cyberzen.easytax.model.User;
 
 public class HomeScreen extends AppCompatActivity {
-    private Button personalTax, registeredComplete;
-    private Button familyTax;
-    private Button businessTax;
+    private Button registeredComplete;
     private DrawerLayout mDrawerLayout;
     private Button logout;
+
 
     private GoogleSignInClient googleSignInClient;
 
@@ -54,9 +53,9 @@ public class HomeScreen extends AppCompatActivity {
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
         googleSignInClient = GoogleSignIn.getClient(this, gso);
 
-        personalTax = (Button) findViewById(R.id.PersonalTax);
-        businessTax = (Button) findViewById(R.id.BusinessTax);
-        familyTax = (Button) findViewById(R.id.FamilyTax);
+        Button personalTax = (Button) findViewById(R.id.PersonalTax);
+        Button businessTax = (Button) findViewById(R.id.BusinessTax);
+        Button familyTax = (Button) findViewById(R.id.FamilyTax);
 
         personalTax.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -118,15 +117,10 @@ public class HomeScreen extends AppCompatActivity {
                     transaction.replace(R.id.content_frame, newFragment);
                     transaction.addToBackStack(null);
                     transaction.commit();
-                    //logout=findViewById(R.id.nav_logout);
-
                     signOut();
                     revokeAccess();
                     startActivity(new Intent(HomeScreen.this, WelcomeActivity.class));
                     finish();
-
-
-
                 }
                 Toast.makeText(getApplicationContext(), menuItem.getTitle(),
                         Toast.LENGTH_LONG).show();
