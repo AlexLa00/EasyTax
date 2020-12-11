@@ -9,9 +9,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.google.android.material.snackbar.Snackbar;
+
 public class FamilyTaxForm extends AppCompatActivity {
     Button submit;
     EditText yearlyincome;
+    Button saved;
 
 
     @Override
@@ -20,7 +23,15 @@ public class FamilyTaxForm extends AppCompatActivity {
         setContentView(R.layout.family_form);
         submit = (Button)findViewById(R.id.personalTaxRefund);
         yearlyincome = (EditText)findViewById(R.id.yearlyIncome);
+        saved = (Button)findViewById(R.id.saveTaxRefund1);
 
+        saved.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Snackbar.make(v, "Progress Saved!", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+            }
+        });
 
         submit.setOnClickListener(new View.OnClickListener() {
             @Override

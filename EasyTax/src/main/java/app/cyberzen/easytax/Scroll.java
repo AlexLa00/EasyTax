@@ -10,9 +10,12 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.google.android.material.snackbar.Snackbar;
+
 public class Scroll extends AppCompatActivity {
     Button submit;
     EditText yearlyincome;
+    Button saved;
 
 
     @Override
@@ -21,6 +24,15 @@ public class Scroll extends AppCompatActivity {
         setContentView(R.layout.activity_scroll);
         submit = (Button)findViewById(R.id.personalTaxRefund);
         yearlyincome = (EditText)findViewById(R.id.yearlyIncome);
+        saved = (Button)findViewById(R.id.saveTaxRefund2);
+
+        saved.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Snackbar.make(v, "Progress Saved!", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+            }
+        });
 
 
         submit.setOnClickListener(new View.OnClickListener() {
