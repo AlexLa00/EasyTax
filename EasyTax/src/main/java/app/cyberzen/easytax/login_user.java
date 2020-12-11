@@ -5,6 +5,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -14,6 +15,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
@@ -39,11 +41,13 @@ import app.cyberzen.easytax.model.User;
 
 
 public class login_user extends AppCompatActivity {
-    private Button btn_google;
     private GoogleAuth googleAuth;
     EditText usernameInput;
     EditText passwordInput;
     Button loginbtn;
+    private SharedPreferences loginPreferences;
+    private SharedPreferences.Editor loginPrefsEditor;
+    private Boolean saveLogin;
     private CheckBox rememberme;
     private SharedPreferences mprefs;
     private static final String PREFS_NAME = "PrefsFile";
@@ -59,7 +63,7 @@ public class login_user extends AppCompatActivity {
         mprefs=getSharedPreferences(PREFS_NAME,MODE_PRIVATE);
 
 
-        btn_google = findViewById(R.id.googlebtn);
+        Button btn_google = findViewById(R.id.googlebtn);
         btn_google.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
@@ -82,6 +86,17 @@ public class login_user extends AppCompatActivity {
 
         });
 
+        //login remember me shared pref
+        loginPreferences = getSharedPreferences("loginPrefs", MODE_PRIVATE);
+        loginPrefsEditor = loginPreferences.edit();
+        saveLogin = loginPreferences.getBoolean("saveLogin", false);
+        if (saveLogin == true) {
+            usernameInput.setText(loginPreferences.getString("username", ""));
+            passwordInput.setText(loginPreferences.getString("password", ""));
+            rememberme.setChecked(true);
+        }
+
+
         TextView login  = (TextView) findViewById(R.id.Help1);
         login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -92,25 +107,8 @@ public class login_user extends AppCompatActivity {
         });
 
 
-        getPreferencesData();
     }
 
-    private void getPreferencesData() {
-        SharedPreferences sp=getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
-        if(sp.contains("pref_name")){
-            String u=sp.getString("pref_name","not found.");
-            usernameInput.setText(u.toString());
-        }
-        if(sp.contains("pref_pass")){
-            String p=sp.getString("pref_pass","not found.");
-            usernameInput.setText(p.toString());
-        }
-
-        if(sp.contains("pref_check")){
-            Boolean cb=sp.getBoolean("pref_check",false);
-            usernameInput.setText(cb.toString());
-        }
-    }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data){
@@ -145,6 +143,18 @@ public class login_user extends AppCompatActivity {
     public void login() {
 
         initilize();//initilize given data to a trimmed string
+
+        //remember me
+        InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+        imm.hideSoftInputFromWindow(usernameInput.getWindowToken(), 0);
+
+        if (rememberme.isChecked()) {
+            loginPrefsEditor.putBoolean("saveLogin", true);
+            loginPrefsEditor.putString("username", uname);
+            loginPrefsEditor.putString("password", usrpwd);
+            loginPrefsEditor.commit();
+        }
+
         if (!Validate()) {
             Toast.makeText(this, "Login failed please try again", Toast.LENGTH_SHORT).show();
         }
@@ -221,18 +231,6 @@ public class login_user extends AppCompatActivity {
         Toast.makeText(this, "Failed to connect to database", Toast.LENGTH_SHORT).show();
     }
     public void LoginSuccess() {
-
-        if(rememberme.isChecked()) {
-            Boolean boolIsChecked = rememberme.isChecked();
-            SharedPreferences.Editor editor = mprefs.edit();
-            editor.putString("pref_name", usernameInput.getText().toString());
-            editor.putString("pref_name", passwordInput.getText().toString());
-            editor.putBoolean("pref_check", boolIsChecked);
-            editor.apply();
-            Toast.makeText(login_user.this, "Remembering you", Toast.LENGTH_SHORT).show();
-        }else{
-            mprefs.edit().clear().apply();
-        }
 
         Toast.makeText(this, "Successfully logged in!", Toast.LENGTH_SHORT).show();
         Intent loginW = new Intent(getApplicationContext(), HomeScreen.class);
