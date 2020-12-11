@@ -16,10 +16,6 @@
             android:id="@+id/nav_setting"
             android:icon="@drawable/tools"
             android:title="@string/setting" />
-        <item
-            android:id="@+id/nav_help"
-            android:icon="@drawable/ic_setting"
-            android:title="@string/report_a_bug" />
 
         <item
             android:id="@+id/nav_logout"
