@@ -19,6 +19,7 @@ package app.cyberzen.easytax;
         import android.net.Uri;
         import android.os.Bundle;
         import android.util.Log;
+        import android.view.Menu;
         import android.view.MenuItem;
         import android.view.View;
         import android.widget.Button;
@@ -79,12 +80,6 @@ public class HomeScreen extends AppCompatActivity {
         });
 
 
-//        HomeMenu  homeFragment =  new HomeMenu ();
-//        FragmentManager manager = getSupportFragmentManager();
-//        manager.beginTransaction().replace(R.id.content_frame, homeFragment).commit();
-
-
-
 
         ActionBar mActionBar = getSupportActionBar();
         assert mActionBar != null;
@@ -111,9 +106,6 @@ public class HomeScreen extends AppCompatActivity {
                     transaction.addToBackStack(null);
                     transaction.commit();
 
-//                } else if (id == R.id.nav_help) {
-//                    Intent myIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://support.google.com/?hl=en/"));
-//                    startActivity(myIntent);
 
                 } else if (id == R.id.nav_setting) {
                     newFragment = new MenuSetting();
@@ -144,7 +136,14 @@ public class HomeScreen extends AppCompatActivity {
 
             }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.overflow_menu, menu );
+        return super.onCreateOptionsMenu(menu);
+
+    }
     public boolean onOptionsItemSelected(MenuItem item) {
+
         switch (item.getItemId()) {
 
             case R.id.Help33:
