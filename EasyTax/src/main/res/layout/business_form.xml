@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".BusinessTaxForm">
+
 
     <TextView
         android:id="@+id/PersonalTaxIntro"
@@ -12,13 +13,15 @@
         android:layout_height="48dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="52dp"
-        android:layout_marginEnd="76dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="44dp"
         android:gravity="left"
         android:text="Business Tax Form"
         android:textColor="@color/black"
-        android:textSize="30sp" />
-
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView6"
@@ -26,61 +29,48 @@
         android:layout_height="44dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="105dp"
-        android:layout_marginEnd="68dp"
+        android:layout_marginStart="76dp"
+        android:layout_marginTop="76dp"
         android:alpha="0.5"
         android:text="2020 Tax Form"
         android:textColor="@color/black"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <Button
+    <Button
         android:id="@+id/personalTaxRefundbus"
-        android:layout_width="199dp"
-        android:layout_height="wrap_content"
+        android:layout_width="198dp"
+        android:layout_height="44dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="34dp"
-        android:layout_marginEnd="177dp"
-        android:layout_marginRight="177dp"
-        android:layout_marginBottom="148dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="76dp"
         android:background="@drawable/button"
         android:clickable="true"
         android:text="Submit"
-        android:textSize="28sp" />
+        android:textSize="28sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/saveTaxRefund2bus"
-        android:layout_width="199dp"
-        android:layout_height="wrap_content"
+        android:layout_width="171dp"
+        android:layout_height="35dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="34dp"
-        android:layout_marginEnd="177dp"
-        android:layout_marginRight="177dp"
-        android:layout_marginBottom="209dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="4dp"
         android:background="@drawable/button"
         android:clickable="true"
         android:text="Save"
-        android:textSize="28sp" />
-
-    <EditText
-        android:id="@+id/yearlyIncomebus"
-        android:layout_width="320dp"
-        android:layout_height="50dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginLeft="41dp"
-        android:layout_marginBottom="489dp"
-        android:background="@android:drawable/editbox_background_normal"
-        android:ems="10"
-        android:hint="@string/enter_yearly_profit"
-        android:inputType="numberDecimal"
-        android:textColor="#000000"
-        android:textSize="20sp" />
+        android:textSize="28sp"
+        app:layout_constraintBottom_toTopOf="@+id/personalTaxRefundbus"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/yearlyIncome2bus"
@@ -89,15 +79,48 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="41dp"
-        android:layout_marginLeft="41dp"
-        android:layout_marginBottom="426dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="8dp"
         android:background="@android:drawable/editbox_background_normal"
         android:ems="10"
-        android:hint=" Capital Gain"
+        android:hint="@string/enter_capital_gain"
         android:inputType="numberDecimal"
         android:textColor="#000000"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/yearlyIncomebus" />
+
+    <EditText
+        android:id="@+id/yearlyIncomebus"
+        android:layout_width="320dp"
+        android:layout_height="50dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="12dp"
+        android:background="@android:drawable/editbox_background_normal"
+        android:ems="10"
+        android:hint="@string/enter_yearly_profit"
+        android:inputType="numberDecimal"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
+    <TextView
+
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/deductions"
+        android:textColor="@color/Green"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/yearlyIncome2bus" />
 
     <EditText
         android:id="@+id/paidIncome2bus"
@@ -105,14 +128,16 @@
         android:layout_height="50dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginLeft="33dp"
-        android:layout_marginBottom="276dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="8dp"
         android:background="@android:drawable/editbox_background_normal"
         android:ems="10"
-        android:hint="  Previous Tax Paid"
+        android:hint="@string/enter_tax_paid"
         android:inputType="numberDecimal"
         android:textColor="#000000"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/paidIncome3bus" />
 
     <EditText
         android:id="@+id/paidIncome3bus"
@@ -121,27 +146,32 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="36dp"
-        android:layout_marginLeft="36dp"
-        android:layout_marginBottom="346dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="12dp"
         android:background="@android:drawable/editbox_background_normal"
         android:ems="10"
-        android:hint=" Charitable Donations"
+        android:hint="@string/enter_charitable"
         android:inputType="numberDecimal"
         android:textColor="#000000"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     <TextView
-        android:id="@+id/taxesOwed"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:clickable="false"
-        android:text="$0.0"
-        android:textAlignment="textEnd"
 
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="#ffffffff"
-        android:textSize="32sp" />
+        android:id="@+id/textView5"
+        android:layout_width="85dp"
+        android:layout_height="21dp"
+        android:layout_above="@+id/yearlyIncome"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:text="@string/income"
+        android:textColor="@color/Green"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
     <TextView
         android:id="@+id/PowerBy"
@@ -167,47 +197,20 @@
 
     <TextView
         android:id="@+id/CyberZen"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="107dp"
+        android:layout_height="24dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="106dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="227dp"
-        android:layout_marginBottom="26dp"
+        android:layout_marginStart="112dp"
+        android:layout_marginBottom="24dp"
         android:fontFamily="@font/bold"
         android:text="@string/cyberzen"
+
         android:textColor="@color/red"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.016"
-        app:layout_constraintStart_toEndOf="@+id/PowerBy"
-        app:layout_constraintTop_toBottomOf="@+id/Member"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <TextView
-
-        android:layout_width="85dp"
-        android:layout_height="21dp"
-        android:layout_above="@+id/yearlyIncome"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="29dp"
-        android:layout_marginTop="156dp"
-        android:layout_marginBottom="15dp"
-        android:text="@string/income" />
-
-    <TextView
-
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="39dp"
-        android:layout_marginTop="311dp"
-        android:text="@string/deductions" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

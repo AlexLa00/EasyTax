@@ -64,6 +64,9 @@
     <string name="deductions">Deductions</string>
     <string name="numogkids"># of Children under 18years</string>
     <string name="enter_yearly_profit">Enter Yearly Income</string>
+    <string name="enter_charitable">Enter Charitable Donations</string>
+    <string name="enter_tax_paid">Enter Tax Paid</string>
+    <string name="enter_capital_gain">Enter Capital Gain</string>
     <string-array name="fontSize">
         <item>12</item>
         <item>13</item>
