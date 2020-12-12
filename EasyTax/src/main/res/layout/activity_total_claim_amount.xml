@@ -62,7 +62,7 @@
         android:fontFamily="@font/bold"
         android:gravity="center"
         android:textColor="@color/white"
-        android:textSize="50sp"
+        android:textSize="40sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

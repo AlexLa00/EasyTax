@@ -46,11 +46,11 @@ public class Scroll extends AppCompatActivity {
                 String saved = "";
                 if(uget<0){
                     uget.toString();
-                    saved = "owe $"+uget;}
+                    saved = "Owe $"+uget;}
                 else {
                     uget.toString();
-                    saved = "Ret $"+uget;}
-                if(saved.length()>13){saved=saved.substring(0, 13);}
+                    saved = "Refund $"+uget;}
+                if(saved.length()>14){saved=saved.substring(0, 14);}
 
                 Intent intent = new Intent(Scroll.this, TotalClaimAmount.class);
                 intent.putExtra("key",saved);

@@ -52,11 +52,11 @@ public class BusinessTaxForm extends AppCompatActivity {
                 String saved = "";
                 if(uget<0){
                     uget.toString();
-                    saved = "owe $"+uget;}
+                    saved = "Owe $"+uget;}
                 else {
                     uget.toString();
-                    saved = "Ret $"+uget;}
-                if(saved.length()>13){saved=saved.substring(0, 13);}
+                    saved = "Refund $"+uget;}
+                if(saved.length()>14){saved=saved.substring(0, 14);}
 
                 Intent intent = new Intent(BusinessTaxForm.this, TotalClaimAmount.class);
                 intent.putExtra("key",saved);
@@ -99,10 +99,10 @@ public class BusinessTaxForm extends AppCompatActivity {
         if(taxable>1000000.00){rate=0.33+0.20;}
 
         //deductions
-        if(rrsp<20000&&rrsp>5000){rate=rate-0.02;}
-        if(rrsp>20000&&rrsp<40000){rate=rate-0.04;}
-        if(rrsp>20000&&rrsp<40000){rate=rate-0.05;}
-        if(rrsp>100000&&rrsp<300000){rate=rate-0.08;}
+        if(rrsp<20000&&rrsp>5000){rate=rate+0.02;}
+        if(rrsp>20000&&rrsp<40000){rate=rate+0.04;}
+        if(rrsp>20000&&rrsp<40000){rate=rate+0.05;}
+        if(rrsp>100000&&rrsp<300000){rate=rate+0.08;}
         if(rrsp>300000){rate=rate-0.11;}
         tot_ded= taxes_paid;
 

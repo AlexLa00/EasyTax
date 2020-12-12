@@ -49,11 +49,11 @@ public class FamilyTaxForm extends AppCompatActivity {
                 String saved = "";
                 if(uget<0){
                     uget.toString();
-                    saved = "owe $"+uget;}
+                    saved = "Owe $"+uget;}
                 else {
                     uget.toString();
-                    saved = "Ret $"+uget;}
-                if(saved.length()>13){saved=saved.substring(0, 13);}
+                    saved = "Retfund $"+uget;}
+                if(saved.length()>14){saved=saved.substring(0, 14);}
 
                 Intent intent = new Intent(FamilyTaxForm.this, TotalClaimAmount.class);
                 intent.putExtra("key",saved);
@@ -101,9 +101,9 @@ public class FamilyTaxForm extends AppCompatActivity {
         if(taxable>205842.00){rate=0.33;}
 
         //kids
-        if(kids==1){rate=rate-0.01;}
-        if(kids>1&&kids<=3){rate=rate-0.023;}
-        if(kids<3){rate=rate-0.032;}
+        if(kids==1){rate=rate+0.01;}
+        if(kids>1&&kids<=3){rate=rate+0.023;}
+        if(kids<3){rate=rate+0.032;}
 
         //total tax
         tot_tax=taxable*rate;
