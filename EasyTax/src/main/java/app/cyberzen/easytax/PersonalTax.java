@@ -7,12 +7,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
-import android.widget.TextView;
 
 import com.google.android.material.snackbar.Snackbar;
 
-public class Scroll extends AppCompatActivity {
+public class PersonalTax extends AppCompatActivity {
    private Button submit, saved;
    private EditText emp_incomeInput,cap_gainInput,Tax_paidInput, rrspInput;
    private Double employ_inc,cap_gain,rate,taxable,tot_tax;
@@ -23,7 +21,7 @@ public class Scroll extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_scroll);
+        setContentView(R.layout.personal_form);
         initilize();
         submit = (Button)findViewById(R.id.personalTaxRefund);
         employ_inc=cap_gain=rate=taxable=tax_due=tot_tax=
@@ -52,7 +50,7 @@ public class Scroll extends AppCompatActivity {
                     saved = "Refund $"+uget;}
                 if(saved.length()>14){saved=saved.substring(0, 14);}
 
-                Intent intent = new Intent(Scroll.this, TotalClaimAmount.class);
+                Intent intent = new Intent(PersonalTax.this, TotalClaimAmount.class);
                 intent.putExtra("key",saved);
                 startActivity(intent);
             }

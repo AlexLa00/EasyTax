@@ -21,7 +21,7 @@
         <activity android:name=".FamilyTaxForm"></activity>
         <activity android:name=".WelcomeActivity" />
         <activity android:name=".BusinessTaxForm" />
-        <activity android:name=".Scroll" />
+        <activity android:name=".PersonalTax" />
         <activity android:name=".login_user" />
         <activity android:name=".RegisterUser" />
         <activity android:name=".TotalClaimAmount" />

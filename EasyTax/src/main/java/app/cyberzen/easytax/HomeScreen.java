@@ -6,24 +6,15 @@ package app.cyberzen.easytax;
         import androidx.core.view.GravityCompat;
         import androidx.drawerlayout.widget.DrawerLayout;
         import androidx.fragment.app.Fragment;
-        import androidx.fragment.app.FragmentManager;
         import androidx.fragment.app.FragmentTransaction;
-        import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
-        import android.annotation.SuppressLint;
-        import android.content.ClipData;
-        import android.content.ComponentName;
         import android.content.Intent;
-        import android.content.IntentFilter;
-        import android.content.pm.PackageManager;
         import android.net.Uri;
         import android.os.Bundle;
-        import android.util.Log;
         import android.view.Menu;
         import android.view.MenuItem;
         import android.view.View;
         import android.widget.Button;
-        import android.widget.TextView;
         import android.widget.Toast;
 
         import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -154,7 +145,7 @@ public class HomeScreen extends AppCompatActivity {
 
 
     public void openPersonalTaxOne() {
-        Intent intent = new Intent(this, Scroll.class);
+        Intent intent = new Intent(this, PersonalTax.class);
         startActivity(intent);
     }
 

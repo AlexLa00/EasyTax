@@ -19,7 +19,7 @@ public class NotificationTax extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.business_form);
-        setContentView(R.layout.activity_scroll);
+        setContentView(R.layout.personal_form);
         setContentView(R.layout.family_form);
 
 
