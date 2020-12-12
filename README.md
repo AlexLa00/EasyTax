@@ -8,3 +8,7 @@ A tax application that will keep records of all your income, business supplies, 
 
 #Github Link
 ##https://github.com/AlexLa00/EasyTax.git
+
+##Default App username and password:
+			##User: 0123456789
+			##Password: Test1234!
