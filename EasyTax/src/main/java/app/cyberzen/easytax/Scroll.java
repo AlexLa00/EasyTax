@@ -10,8 +10,10 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.google.android.material.snackbar.Snackbar;
+
 public class Scroll extends AppCompatActivity {
-   private Button submit;
+   private Button submit, saved;
    private EditText emp_incomeInput,cap_gainInput,Tax_paidInput, rrspInput;
    private Double employ_inc,cap_gain,rate,taxable,tot_tax;
    private Double taxes_paid, rrsp,rrsp_gain,tot_ded;
@@ -27,7 +29,15 @@ public class Scroll extends AppCompatActivity {
         employ_inc=cap_gain=rate=taxable=tax_due=tot_tax=
                 taxes_paid=rrsp=rrsp_gain=tot_ded= uget=0.00;
 
+        saved = (Button)findViewById(R.id.saveTaxRefund2);
 
+        saved.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Snackbar.make(v, "Progress Saved!", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+            }
+        });
 
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
